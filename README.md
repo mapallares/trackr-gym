@@ -36,8 +36,8 @@ Todos los servicios están contenedorizados con Docker y gestionados mediante Do
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/TrackrGym-System.git
-   cd TrackrGym-System
+   git clone https://github.com/mapallares/trackr-gym.git
+   cd trackr-gym
    ```
 
 2. Construye y ejecuta todos los servicios con Docker Compose:
