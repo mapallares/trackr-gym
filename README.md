@@ -1,9 +1,6 @@
 
 # TrackrGym
-
-![image](https://github.com/user-attachments/assets/399be52c-1d94-43a1-96d9-7de545711088)
-
-**TrackrGym** es un sistema basado en microservicios diseñado para gestionar las operaciones de un gimnasio, incluyendo la administración de planes de membresía, inventario de equipos, programación de reservas y pagos. El sistema es escalable, construido con Node.js y orquestado con Docker Compose para permitir un despliegue y gestión independiente de cada servicio.
+**TrackrGYM** es un sistema basado en microservicios diseñado para gestionar las operaciones de un gimnasio, incluyendo la administración de planes de membresía, inventario de equipos, programación de reservas y pagos. El sistema es escalable, construido con Node.js y orquestado con Docker Compose para permitir un despliegue y gestión independiente de cada servicio.
 
 ## **Características**
 
