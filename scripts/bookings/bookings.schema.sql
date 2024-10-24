@@ -1,6 +1,5 @@
 CREATE DATABASE "Bookings"
 
-
 CREATE TABLE "Bookings" (
   "id" UUID PRIMARY KEY DEFAULT (GEN_RANDOM_UUID()),
   "activityId" UUID NOT NULL,
