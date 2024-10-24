@@ -1,5 +1,6 @@
 CREATE DATABASE "Bookings"
 
+
 CREATE TABLE "Bookings" (
   "id" UUID PRIMARY KEY DEFAULT (GEN_RANDOM_UUID()),
   "activityId" UUID NOT NULL,
@@ -94,6 +95,6 @@ CREATE TABLE "Attendances" (
 
 ALTER TABLE "Attendances" ADD FOREIGN KEY ("bookingId") REFERENCES "Bookings" ("id");
 
-ALTER TABLE "Activities" ADD FOREIGN KEY ("service_id") REFERENCES "Services" ("id");
+ALTER TABLE "Activities" ADD FOREIGN KEY ("serviceId") REFERENCES "Services" ("id");
 
 ALTER TABLE "Bookings" ADD FOREIGN KEY ("activityId") REFERENCES "Activities" ("id");
