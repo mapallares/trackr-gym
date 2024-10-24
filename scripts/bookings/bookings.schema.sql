@@ -26,7 +26,7 @@ CREATE TABLE "Bookings" (
 
 CREATE TABLE "Activities" (
   "id" UUID PRIMARY KEY DEFAULT (GEN_RANDOM_UUID()),
-  "service_id" UUID NOT NULL,
+  "serviceId" UUID NOT NULL,
   "branchId" UUID NOT NULL,
   "name" VARCHAR(500) NOT NULL CHECK(LENGTH(TRIM("name")) > 0),
   "details" TEXT,
