@@ -25,6 +25,10 @@ export class User extends Entity {
             type: 'string'
         },
         {
+            name: 'phone',
+            type: 'string'
+        },
+        {
             name: 'password',
             type: 'string'
         },
