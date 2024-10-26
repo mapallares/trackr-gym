@@ -2,6 +2,10 @@ import Entity from './entity/Entity.mjs'
 
 export class User extends Entity {
 
+    constructor(object) {
+        super(User, object)
+    }
+
     static table = {
         name: 'Users',
         id: 'id'
@@ -22,10 +26,6 @@ export class User extends Entity {
         },
         {
             name: 'email',
-            type: 'string'
-        },
-        {
-            name: 'phone',
             type: 'string'
         },
         {
@@ -70,8 +70,26 @@ export class User extends Entity {
         }
     ]
 
-    static getData(object) {
-        return super.getData(this, object)
+    static relations = {
+        toMany: [
+            {
+                table: 'UsersRoles',
+                by: 'userId'
+            },
+            {
+                table: 'Attributes',
+                by: 'userId'
+            },
+            {
+                table: 'BlockedTokens',
+                by: 'userId'
+            }
+        ],
+        toOne: []
+    }
+
+    get(columns = [], including = true) {
+        return super.get(User, columns, including)
     }
 
 }

@@ -2,6 +2,10 @@ import Entity from './entity/Entity.mjs'
 
 export class BlockedToken extends Entity {
 
+    constructor(object) {
+        super(BlockedToken, object)
+    }
+
     static table = {
         name: 'BlockedTokens',
         id: 'id'
@@ -42,8 +46,18 @@ export class BlockedToken extends Entity {
         }
     ]
 
-    static getData(object) {
-        return super.getData(this, object)
+    static relations = {
+        toMany: [],
+        toOne: [
+            {
+                table: 'Users',
+                by: 'userId'
+            }
+        ]
+    }
+
+    get(columns = [], including = true) {
+        return super.get(BlockedToken, columns, including)
     }
 
 }

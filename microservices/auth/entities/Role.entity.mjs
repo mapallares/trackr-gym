@@ -2,6 +2,10 @@ import Entity from './entity/Entity.mjs'
 
 export class Role extends Entity {
 
+    constructor(object) {
+        super(Role, object)
+    }
+
     static table = {
         name: 'Roles',
         id: 'id'
@@ -50,8 +54,26 @@ export class Role extends Entity {
         }
     ]
 
-    static getData(object) {
-        return super.getData(this, object)
+    static relations = {
+        toMany: [
+            {
+                table: 'Roles',
+                by: 'childOfId'
+            },
+            {
+                table: 'RolesPermissions',
+                by: 'roleId'
+            },
+            {
+                table: 'UsersRoles',
+                by: 'roleId'
+            }
+        ],
+        toOne: []
+    }
+
+    get(columns = [], including = true) {
+        return super.get(Role, columns, including)
     }
 
 }
