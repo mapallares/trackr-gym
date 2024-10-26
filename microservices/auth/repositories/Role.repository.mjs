@@ -29,6 +29,14 @@ export class RoleRepository extends Repository {
         return await super.saveAll(Role, role)
     }
 
+    static async updateById(id, role) {
+        return await super.updateById(Role, id, role)
+    }
+
+    static async deleteById(id) {
+        return await super.deleteById(Role, id)
+    }
+
     static async relatePermission(roleId, permissionId) {
         return await super.save(`INSERT INTO "RolesPermissions" 
             ("roleId", "permissionId") 

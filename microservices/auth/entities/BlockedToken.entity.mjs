@@ -60,6 +60,10 @@ export class BlockedToken extends Entity {
         return super.get(BlockedToken, columns, including)
     }
 
+    set(object, replacing) {
+        return super.set(BlockedToken, object, replacing)
+    }
+
 }
 
 export default BlockedToken

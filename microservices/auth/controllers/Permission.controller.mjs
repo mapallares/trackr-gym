@@ -11,6 +11,7 @@ export class PermissionController extends Controller {
     static async getAll(request, response) {
         super.process(request, response, async () => {
             const permissions = await PermissionService.findAllPermissions()
+
             return response.status(200).json(permissions.map(permission => permission.name))
         }, ['Admin'])
     }
@@ -32,8 +33,10 @@ export class PermissionController extends Controller {
     static async getByName(request, response) {
         super.process(request, response, async () => {
             const { name } = request.params
+
             const permission = await PermissionService.findPermissionByName(name)
             if (!permission) throw new PermissionNotFoundError(`El permiso ${name} no existe`)
+                
             return response.status(200).json(permission)        
         }, ['Admin'])
     }
@@ -42,11 +45,11 @@ export class PermissionController extends Controller {
         super.process(request, response, async () => {
             const { name, description } = request.body
 
-            const permissionFound = await PermissionService.findPermissionByName(name)
-            if (!permissionFound) throw new PermissionNotFoundError(`El permiso ${name} que intenta modificar no existe`)
-
             Validator.required({ name, description })
             Validator.length({ name, description }, 2, 500)
+
+            const permissionFound = await PermissionService.findPermissionByName(name)
+            if (!permissionFound) throw new PermissionNotFoundError(`El permiso ${name} que intenta modificar no existe`)
 
             const permission = await PermissionService.updatePermissionById(permissionFound.id, { name, description, updatedAt: 'now()', updatedBy: request.user.name })
             
@@ -57,6 +60,10 @@ export class PermissionController extends Controller {
     static async deleteByName(request, response) {
         super.process(request, response, async () => {
             const { name } = request.params
+
+            Validator.required({ name })
+            Validator.length({ name }, 2, 500)
+
             const permission = await PermissionService.findPermissionByName(name)
             if (!permission) throw new PermissionNotFoundError(`El permiso ${name} no existe`)
             

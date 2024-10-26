@@ -48,6 +48,15 @@ export class UserService extends IUserService {
         return await UserRepository.relateRole(userId, roleId)
     }
 
+    static async unrelateRole(userId, roleId) {
+        return await UserRepository.unrelateRole(userId, roleId)
+    }
+    
+    static async existsRole(userId, roleId) {
+        const userRole = await UserRepository.findUserRole(userId, roleId)
+        return userRole[0] ? true : false
+    }
+
 }
 
 export default UserService

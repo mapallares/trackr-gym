@@ -76,6 +76,10 @@ export class Role extends Entity {
         return super.get(Role, columns, including)
     }
 
+    set(object, replacing) {
+        return super.set(Role, object, replacing)
+    }
+
 }
 
 export default Role

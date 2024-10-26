@@ -92,6 +92,10 @@ export class User extends Entity {
         return super.get(User, columns, including)
     }
 
+    set(object, replacing = true) {
+        return super.set(User, object, replacing)
+    }
+
 }
 
 export default User

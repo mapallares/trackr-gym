@@ -30,6 +30,14 @@ export class IUserService extends Service {
         return super.implements()
     }
 
+    static async unrelateRole(userId, roleId) {
+        return super.implements()
+    }
+
+    static async existsRole(userId, roleId) {
+        return super.implements()
+    }
+
 }
 
 export default IUserService

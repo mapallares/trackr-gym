@@ -32,6 +32,14 @@ export class RoleService extends IRoleService {
         return role
     }
 
+    static async updateRoleById(id, role) {
+        return await RoleRepository.updateById(id, role)
+    }
+
+    static async deleteRoleById(id) {
+        return await RoleRepository.deleteById(id)
+    }
+
     static async relatePermission(roleId, permissionId) {
         return await RoleRepository.relatePermission(roleId, permissionId)
     }

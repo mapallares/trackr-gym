@@ -69,6 +69,10 @@ export class Permission extends Entity {
         return super.get(Permission, columns, including)
     }
 
+    set(object, replacing) {
+        return super.set(Permission, object, replacing)
+    }
+
 }
 
 export default Permission

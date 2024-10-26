@@ -20,17 +20,19 @@ export class Entity {
     }
 
     constructor(entity, object) {
-        if(!Entity.isPrototypeOf(entity)) throw new Error('No se ha inyectado una entidad válida para instanciar Entity')
+        if(!Entity.isPrototypeOf(entity)) throw new Error('No se ha inyectado una entidad válida para setiar las columnas de una Entity')
         if(!(object instanceof Object)) throw new Error('No se ha recibido un objeto válido para instanciar Entity')
         entity.getColumns().forEach(column => {
+            if(object[column.name] != null && object[column.name] != undefined && typeof object[column.name] != column.type) Error(`El valor de la columna ${column.name} debe ser de tipo ${column.type}`)
             this[column.name] = object[column.name] || null
         })
     }
 
     get(entity, columns = [], including = true) {
-        const data = {}
+        if(!Entity.isPrototypeOf(entity)) throw new Error('No se ha inyectado una entidad válida para el método get de Entity')
         if(typeof including != 'boolean') throw new Error('excluding debe ser un valor booleano en get de Entity')
         if(columns != null && !(columns instanceof Array)) throw new Error(`El formato de columnas a ${including ? 'incluir' : 'excluir'} no es correcto en get de Entity`)
+        const data = {}
         entity.getColumns().forEach(column => {
             if(columns.length > 0) {
                 if(columns.includes(column.name) == including) {
@@ -42,6 +44,21 @@ export class Entity {
             }
         })
         return data
+    }
+
+    set(entity, object, replacing = true) {
+        if(!Entity.isPrototypeOf(entity)) throw new Error('No se ha inyectado una entidad válida para setiar las columnas de una Entity')
+        if(typeof replacing != 'boolean') throw new Error('replacing debe ser un valor booleano en set de Entity')
+        if(!(object instanceof Object)) throw new Error('No se ha recibido un objeto válido para instanciar Entity')
+        entity.getColumns().forEach(column => {
+            if(object[column.name] != null && object[column.name] != undefined && typeof object[column.name] != column.type) Error(`El valor de la columna ${column.name} debe ser de tipo ${column.type}`)
+            if(replacing) {
+                this[column.name] = object[column.name] || null
+            }
+            else {
+                if(object[column.name]) this[column.name] = object[column.name] || null
+            }
+        })
     }
 
     static getTable() {

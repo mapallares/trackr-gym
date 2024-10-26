@@ -38,8 +38,21 @@ export class UserRepository extends Repository {
             RETURNING *`)
     }
 
+    static async unrelateRole(userId, roleId) {
+        return await super.find(`DELETE FROM "UsersRoles" 
+            WHERE "userId" = '${userId}' 
+            AND "roleId" = '${roleId}'`)
+    }
+
     static async updateByUsername(username, user) {
         return await super.updateByColumn(User, { username }, user)
+    }
+    
+    static async findUserRole(userId, roleId) {
+        return await super.find(`SELECT * 
+            FROM "UsersRoles" 
+            WHERE "userId" = '${userId}' 
+            AND "roleId" = '${roleId}'`)
     }
 
 }

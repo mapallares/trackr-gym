@@ -22,6 +22,14 @@ export class IRoleService extends Service {
         return super.implements()
     }
 
+    static async updateRoleById(id, role) {
+        return super.implements()
+    }
+
+    static async deleteRoleById(id) {
+        return super.implements()
+    }
+
     static async relatePermission(roleId, permissionId) {
         return super.implements()
     }
