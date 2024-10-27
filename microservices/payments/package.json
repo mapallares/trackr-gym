@@ -1,0 +1,12 @@
+{
+    "name": "payments",
+    "version": "1.0.0",
+    "author": "Binarium Team",
+    "license": "ISC",
+    "description": "",
+    "type": "module",
+    "scripts": {
+      "dev": "node --watch api.js"
+    }
+  }
+  

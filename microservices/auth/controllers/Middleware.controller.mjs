@@ -3,6 +3,8 @@ import Controller from './controller/Controller.mjs'
 import BlockedTokenService from '../services/BlockedToken.service.mjs'
 import { TokenRequiredError } from '../errors/error/TokenRequired.error.mjs'
 import { UnauthorizedError } from '../errors/error/Unauthorized.error.mjs'
+import RoleService from '../services/Role.service.mjs'
+import PermissionService from '../services/Permission.service.mjs'
 
 export class MiddlewareController extends Controller {
 
@@ -16,6 +18,10 @@ export class MiddlewareController extends Controller {
             try {
               const decoded = jwt.verify(token, process.env.JWT_SECRET)
               request.user = decoded
+              const roles = await RoleService.findAllRolesByUserId(decoded.userId)
+              const permissions = await PermissionService.findAllPermissionsByUserId(decoded.userId)
+              request.user.roles = roles.map(role => role.name)
+              request.user.permissions = permissions.map(permission => permission.name)
               next()
             } catch (error) {
               if(error.name == 'TokenExpiredError') throw new UnauthorizedError('El token ha vencido')

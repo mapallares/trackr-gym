@@ -14,35 +14,43 @@ export class BlockedToken extends Entity {
     static columns = [
         {
             name: 'id',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'userId',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'token',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'expiration',
-            type: 'date'
+            type: 'date',
+            nulleable: false
         },
         {
             name: 'createdAt',
-            type: 'date'
+            type: 'date',
+            nulleable: false
         },
         {
             name: 'createdBy',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'updatedAt',
-            type: 'date'
+            type: 'date',
+            nulleable: true
         },
         {
             name: 'updatedBy',
-            type: 'string'
+            type: 'string',
+            nulleable: true
         }
     ]
 

@@ -1,13 +1,13 @@
 import Entity from './entity/Entity.mjs'
 
-export class Permission extends Entity {
+export class Invoice extends Entity {
 
     constructor(object) {
-        super(Permission, object)
+        super(Invoice, object)
     }
 
     static table = {
-        name: 'Permissions',
+        name: 'Invoices',
         id: 'id'
     }
 
@@ -18,22 +18,47 @@ export class Permission extends Entity {
             nulleable: false
         },
         {
-            name: 'name',
+            name: 'paymentId',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'description',
+            name: 'emissionDate',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'id',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'status',
+            name: 'totalCurrencyAmount',
+            type: 'numeric',
+            nulleable: false
+        },
+        {
+            name: 'currencyAmountUnitTypeId',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'code',
             type: 'string',
             nulleable: false
         },
         {
             name: 'isActive',
+            type: 'boolean',
+            nulleable: false
+        },
+        {
+            name: 'isCorrect',
+            type: 'boolean',
+            nulleable: false
+        },
+        {
+            name: 'isValid',
             type: 'boolean',
             nulleable: false
         },
@@ -60,28 +85,27 @@ export class Permission extends Entity {
     ]
 
     static relations = {
-        toMany: [
-            {
-                table: 'RolesPermissions',
-                by: 'permissionId'
-            }
-        ],
+        toMany: [],
         toOne: [
             {
-                table: 'Types',
-                by: 'permissionId'
+                table: 'Payments',
+                by: 'paymentId'
+            },
+            {
+                table: 'CurrencyAmountUnitTypes',
+                by: 'currencyAmountUnitTypeId'
             }
         ]
     }
 
     get(columns = [], including = true) {
-        return super.get(Permission, columns, including)
+        return super.get(Invoice, columns, including)
     }
 
     set(object, replacing) {
-        return super.set(Permission, object, replacing)
+        return super.set(Invoice, object, replacing)
     }
 
 }
 
-export default Permission
+export default Invoice

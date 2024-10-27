@@ -78,13 +78,13 @@ export class RoleController extends Controller {
 
     static async assign(request, response) {
         super.process(request, response, async () => {
-            const { roles, user } = request.body
+            const { roles, username } = request.body
     
-            Validator.required({ roles, user })
+            Validator.required({ roles, username })
             Validator.isArray({ roles })
-            Validator.length({ user }, 2, 500)
+            Validator.length({ username }, 2, 500)
     
-            const userFound = await UserService.findUserByUsername(user)
+            const userFound = await UserService.findUserByUsername(username)
             if (!userFound) throw new UserNotFoundError('El usuario al que intenta asignarle roles no existe')
     
             const rolesFounds = []
@@ -105,13 +105,13 @@ export class RoleController extends Controller {
 
     static async check(request, response) {
         super.process(request, response, async () => {
-            const { roles, user } = request.body
+            const { roles, username } = request.body
     
-            Validator.required({ roles, user })
+            Validator.required({ roles, username })
             Validator.isArray({ roles })
-            Validator.length({ user }, 2, 500)
+            Validator.length({ username }, 2, 500)
     
-            const userFound = await UserService.findUserByUsername(user)
+            const userFound = await UserService.findUserByUsername(username)
             if (!userFound) throw new UserNotFoundError('El usuario al que intenta asignarle roles no existe')
     
             const rolesFounds = []
@@ -135,13 +135,13 @@ export class RoleController extends Controller {
 
     static async revoke(request, response) {
         super.process(request, response, async () => {
-            const { roles, user } = request.body
+            const { roles, username } = request.body
     
-            Validator.required({ roles, user })
+            Validator.required({ roles, username })
             Validator.isArray({ roles })
-            Validator.length({ user }, 2, 500)
+            Validator.length({ username }, 2, 500)
     
-            const userFound = await UserService.findUserByUsername(user)
+            const userFound = await UserService.findUserByUsername(username)
             if (!userFound) throw new UserNotFoundError('El usuario al que intenta asignarle roles no existe')
     
             const rolesFounds = []
@@ -154,7 +154,7 @@ export class RoleController extends Controller {
     
             for (const roleFound of rolesFounds) {
                 const exists = await UserService.existsRole(userFound.id, roleFound.id)
-                if (!exists) throw new NotFoundError(`El rol ${roleFound.name} no tiene el permiso ${roleFound.name}`)
+                if (!exists) throw new NotFoundError(`El usuario ${username} no tiene el rol ${roleFound.name}`)
             }
     
             for (const roleFound of rolesFounds) {

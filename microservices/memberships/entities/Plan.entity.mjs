@@ -1,19 +1,24 @@
 import Entity from './entity/Entity.mjs'
 
-export class Permission extends Entity {
+export class Plan extends Entity {
 
     constructor(object) {
-        super(Permission, object)
+        super(Plan, object)
     }
 
     static table = {
-        name: 'Permissions',
+        name: 'Plans',
         id: 'id'
     }
 
     static columns = [
         {
             name: 'id',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'gymId',
             type: 'string',
             nulleable: false
         },
@@ -25,6 +30,21 @@ export class Permission extends Entity {
         {
             name: 'description',
             type: 'string',
+            nulleable: true
+        },
+        {
+            name: 'type',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'price',
+            type: 'numeric',
+            nulleable: false
+        },
+        {
+            name: 'ability',
+            type: 'numeric',
             nulleable: false
         },
         {
@@ -62,26 +82,34 @@ export class Permission extends Entity {
     static relations = {
         toMany: [
             {
-                table: 'RolesPermissions',
-                by: 'permissionId'
+                table: 'PlansBenefits',
+                table: 'planId'
+            },
+            {
+                table: 'PlansBranches',
+                by: 'planId'
+            },
+            {
+                table: 'Memberships',
+                table: 'planId'
             }
         ],
         toOne: [
             {
-                table: 'Types',
-                by: 'permissionId'
+                table: 'Gyms',
+                by: 'gymId'
             }
         ]
     }
 
     get(columns = [], including = true) {
-        return super.get(Permission, columns, including)
+        return super.get(Plan, columns, including)
     }
 
     set(object, replacing) {
-        return super.set(Permission, object, replacing)
+        return super.set(Plan, object, replacing)
     }
 
 }
 
-export default Permission
+export default Plan

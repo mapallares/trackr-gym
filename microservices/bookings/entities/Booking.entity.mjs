@@ -1,13 +1,13 @@
 import Entity from './entity/Entity.mjs'
 
-export class Permission extends Entity {
+export class Booking extends Entity {
 
     constructor(object) {
-        super(Permission, object)
+        super(Booking, object)
     }
 
     static table = {
-        name: 'Permissions',
+        name: 'Bookings',
         id: 'id'
     }
 
@@ -18,13 +18,48 @@ export class Permission extends Entity {
             nulleable: false
         },
         {
-            name: 'name',
+            name: 'activityId',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'description',
+            name: 'userId',
             type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'branchId',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'date',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'startTime',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'endTime',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'reason',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'isApproved',
+            type: 'boolean',
+            nulleable: false
+        },
+        {
+            name: 'isCancelled',
+            type: 'boolean',
             nulleable: false
         },
         {
@@ -62,26 +97,26 @@ export class Permission extends Entity {
     static relations = {
         toMany: [
             {
-                table: 'RolesPermissions',
-                by: 'permissionId'
+                table: 'Attendances',
+                by: 'bookingId'
             }
         ],
         toOne: [
             {
-                table: 'Types',
-                by: 'permissionId'
+                table: 'Activities',
+                by: 'activityId'
             }
         ]
     }
 
     get(columns = [], including = true) {
-        return super.get(Permission, columns, including)
+        return super.get(Booking, columns, including)
     }
 
     set(object, replacing) {
-        return super.set(Permission, object, replacing)
+        return super.set(Booking, object, replacing)
     }
 
 }
 
-export default Permission
+export default Booking

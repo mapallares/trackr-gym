@@ -1,3 +1,4 @@
+import Entity from '../../entities/entity/Entity.mjs'
 import Database from '../../databases/postgres.database.mjs'
 
 export class Repository {
@@ -23,7 +24,7 @@ export class Repository {
   }
 
   static async saveAll(entity, data) {
-    const name = entity.getTableName();
+    const name = entity.getTableName()
     const keys = Object.keys(data).map(key => `"${key}"`).join(', ')
     const values = Object.values(data)
     const placeholders = values.map((_, i) => `'${_}'`).join(', ')
@@ -36,13 +37,13 @@ export class Repository {
       const result = await Database.select(query)
       return result[0] || null
     } catch (error) {
-      console.error(`Error al guardar el registro en ${name}`, error);
+      console.error(`Error al guardar el registro en ${name}`, error)
       throw error
     }
   }
 
   static async findAll(entity) {
-    const name = entity.getTableName();
+    const name = entity.getTableName()
     const query = `SELECT * 
     FROM "${name}"`
 
@@ -56,7 +57,7 @@ export class Repository {
   }
 
   static async findById(entity, identifier) {
-    const { name, id } = entity.getTable();
+    const { name, id } = entity.getTable()
     const query = `SELECT * 
     FROM "${name}" 
     WHERE "${id}" = '${identifier}'`
@@ -105,7 +106,7 @@ export class Repository {
   }
 
   static async updateById(entity, identifier, data) {
-    const { name, id } = entity.getTable();
+    const { name, id } = entity.getTable()
     const column = entity.getColumn(id)
     const value = identifier
     const keys = Object.keys(data)
@@ -129,7 +130,7 @@ export class Repository {
   static async updateByColumn(entity, value, data) {
     const column = entity.getColumn(Object.keys(value)[0])
     value = Object.values(value)[0]
-    const { name, id } = entity.getTable();
+    const { name, id } = entity.getTable()
     const keys = Object.keys(data)
     const values = Object.values(data)
     const setClause = keys.map((key, i) => `"${key}" = ${['string', 'date'].includes(entity.getColumn(key).type) ? `'${values[i]}'` : `${values[i]}`}`).join(', ')
@@ -149,7 +150,7 @@ export class Repository {
   }
 
   static async deleteById(entity, identifier) {
-    const { name, id } = entity.getTable();
+    const { name, id } = entity.getTable()
     const column = entity.getColumn(id)
     const value = identifier
     const query = `DELETE FROM "${name}"

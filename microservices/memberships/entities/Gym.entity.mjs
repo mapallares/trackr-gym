@@ -1,13 +1,13 @@
 import Entity from './entity/Entity.mjs'
 
-export class Permission extends Entity {
+export class Gym extends Entity {
 
     constructor(object) {
-        super(Permission, object)
+        super(Gym, object)
     }
 
     static table = {
-        name: 'Permissions',
+        name: 'Gyms',
         id: 'id'
     }
 
@@ -23,8 +23,38 @@ export class Permission extends Entity {
             nulleable: false
         },
         {
-            name: 'description',
+            name: 'slogan',
             type: 'string',
+            nulleable: true
+        },
+        {
+            name: 'nit',
+            type: 'string',
+            nulleable: true
+        },
+        {
+            name: 'type',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'adress',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'phone',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'email',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'foundedIn',
+            type: 'date',
             nulleable: false
         },
         {
@@ -62,26 +92,29 @@ export class Permission extends Entity {
     static relations = {
         toMany: [
             {
-                table: 'RolesPermissions',
-                by: 'permissionId'
+                table: 'Branches',
+                by: 'gymId'
+            },
+            {
+                table: 'Networks',
+                by: 'gymId'
+            },
+            {
+                table: 'Plans',
+                by: 'gymId'
             }
         ],
-        toOne: [
-            {
-                table: 'Types',
-                by: 'permissionId'
-            }
-        ]
+        toOne: []
     }
 
     get(columns = [], including = true) {
-        return super.get(Permission, columns, including)
+        return super.get(Gym, columns, including)
     }
 
     set(object, replacing) {
-        return super.set(Permission, object, replacing)
+        return super.set(Gym, object, replacing)
     }
 
 }
 
-export default Permission
+export default Gym

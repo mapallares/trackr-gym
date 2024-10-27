@@ -1,13 +1,13 @@
 import Entity from './entity/Entity.mjs'
 
-export class Permission extends Entity {
+export class Benefit extends Entity {
 
     constructor(object) {
-        super(Permission, object)
+        super(Benefit, object)
     }
 
     static table = {
-        name: 'Permissions',
+        name: 'Benefits',
         id: 'id'
     }
 
@@ -23,9 +23,14 @@ export class Permission extends Entity {
             nulleable: false
         },
         {
-            name: 'description',
+            name: 'type',
             type: 'string',
             nulleable: false
+        },
+        {
+            name: 'description',
+            type: 'string',
+            nulleable: true
         },
         {
             name: 'status',
@@ -62,26 +67,21 @@ export class Permission extends Entity {
     static relations = {
         toMany: [
             {
-                table: 'RolesPermissions',
-                by: 'permissionId'
+                table: 'PlansBenefits',
+                by: 'benefitId'
             }
         ],
-        toOne: [
-            {
-                table: 'Types',
-                by: 'permissionId'
-            }
-        ]
+        toOne: []
     }
 
     get(columns = [], including = true) {
-        return super.get(Permission, columns, including)
+        return super.get(Benefit, columns, including)
     }
 
     set(object, replacing) {
-        return super.set(Permission, object, replacing)
+        return super.set(Benefit, object, replacing)
     }
 
 }
 
-export default Permission
+export default Benefit

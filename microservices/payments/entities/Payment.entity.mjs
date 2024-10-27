@@ -1,13 +1,13 @@
 import Entity from './entity/Entity.mjs'
 
-export class User extends Entity {
+export class Payment extends Entity {
 
     constructor(object) {
-        super(User, object)
+        super(Payment, object)
     }
 
     static table = {
-        name: 'Users',
+        name: 'Payments',
         id: 'id'
     }
 
@@ -18,33 +18,48 @@ export class User extends Entity {
             nulleable: false
         },
         {
-            name: 'name',
+            name: 'userId',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'username',
+            name: 'reason',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'email',
+            name: 'description',
             type: 'string',
-            nulleable: false
-        },
-        {
-            name: 'password',
-            type: 'string',
-            nulleable: false
-        },
-        {
-            name: 'lastLogin',
-            type: 'date',
             nulleable: true
         },
         {
-            name: 'isOnline',
-            type: 'boolean',
+            name: 'paymentMethodId',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'paymentDate',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'paymentPercentage',
+            type: 'numeric',
+            nulleable: false
+        },
+        {
+            name: 'reference',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'currencyAmount',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'currencyAmountUnitTypeId',
+            type: 'string',
             nulleable: false
         },
         {
@@ -55,11 +70,6 @@ export class User extends Entity {
         {
             name: 'isActive',
             type: 'boolean',
-            nulleable: false
-        },
-        {
-            name: 'registerDate',
-            type: 'date',
             nulleable: false
         },
         {
@@ -87,29 +97,34 @@ export class User extends Entity {
     static relations = {
         toMany: [
             {
-                table: 'UsersRoles',
-                by: 'userId'
+                table: 'PaymentsComments',
+                by: 'paymentId'
             },
             {
-                table: 'Attributes',
-                by: 'userId'
-            },
-            {
-                table: 'BlockedTokens',
-                by: 'userId'
+                table: 'Invoices',
+                by: 'paymentId'
             }
         ],
-        toOne: []
+        toOne: [
+            {
+                table: 'PaymentMethods',
+                by: 'paymentMethodId'
+            },
+            {
+                table: 'CurrencyAmountUnitTypes',
+                by: 'currencyAmountUnitTypeId'
+            }
+        ]
     }
 
     get(columns = [], including = true) {
-        return super.get(User, columns, including)
+        return super.get(Payment, columns, including)
     }
 
-    set(object, replacing = true) {
-        return super.set(User, object, replacing)
+    set(object, replacing) {
+        return super.set(Payment, object, replacing)
     }
 
 }
 
-export default User
+export default Payment

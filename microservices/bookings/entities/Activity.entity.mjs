@@ -1,13 +1,13 @@
 import Entity from './entity/Entity.mjs'
 
-export class Permission extends Entity {
+export class Activity extends Entity {
 
     constructor(object) {
-        super(Permission, object)
+        super(Activity, object)
     }
 
     static table = {
-        name: 'Permissions',
+        name: 'Activities',
         id: 'id'
     }
 
@@ -18,13 +18,53 @@ export class Permission extends Entity {
             nulleable: false
         },
         {
+            name: 'serviceId',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'branchId',
+            type: 'string',
+            nulleable: false
+        },
+        {
             name: 'name',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'description',
+            name: 'details',
             type: 'string',
+            nulleable: true
+        },
+        {
+            name: 'type',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'inCharge',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'capacity',
+            type: 'numeric',
+            nulleable: false
+        },
+        {
+            name: 'date',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'startTime',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'endTime',
+            type: 'date',
             nulleable: false
         },
         {
@@ -62,26 +102,26 @@ export class Permission extends Entity {
     static relations = {
         toMany: [
             {
-                table: 'RolesPermissions',
-                by: 'permissionId'
+                table: 'Bookings',
+                by: 'activiyId'
             }
         ],
         toOne: [
             {
-                table: 'Types',
-                by: 'permissionId'
+                table: 'Services',
+                by: 'serviceId'
             }
         ]
     }
 
     get(columns = [], including = true) {
-        return super.get(Permission, columns, including)
+        return super.get(Activity, columns, including)
     }
 
     set(object, replacing) {
-        return super.set(Permission, object, replacing)
+        return super.set(Activity, object, replacing)
     }
 
 }
 
-export default Permission
+export default Activity

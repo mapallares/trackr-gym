@@ -1,13 +1,13 @@
 import Entity from './entity/Entity.mjs'
 
-export class Permission extends Entity {
+export class Membership extends Entity {
 
     constructor(object) {
-        super(Permission, object)
+        super(Membership, object)
     }
 
     static table = {
-        name: 'Permissions',
+        name: 'Memberships',
         id: 'id'
     }
 
@@ -18,18 +18,43 @@ export class Permission extends Entity {
             nulleable: false
         },
         {
-            name: 'name',
+            name: 'planId',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'description',
+            name: 'userId',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'status',
+            name: 'payId',
             type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'purchaseDate',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'expirationDate',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'paymentDueDate',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'wasRenewed',
+            type: 'boolean',
+            nulleable: false
+        },
+        {
+            name: 'isCancelled',
+            type: 'boolean',
             nulleable: false
         },
         {
@@ -62,26 +87,26 @@ export class Permission extends Entity {
     static relations = {
         toMany: [
             {
-                table: 'RolesPermissions',
-                by: 'permissionId'
+                table: 'UsersMemberships',
+                by: 'membershipId'
             }
         ],
         toOne: [
             {
-                table: 'Types',
-                by: 'permissionId'
+                table: 'Plans',
+                by: 'planId'
             }
         ]
     }
 
     get(columns = [], including = true) {
-        return super.get(Permission, columns, including)
+        return super.get(Membership, columns, including)
     }
 
     set(object, replacing) {
-        return super.set(Permission, object, replacing)
+        return super.set(Membership, object, replacing)
     }
 
 }
 
-export default Permission
+export default Membership

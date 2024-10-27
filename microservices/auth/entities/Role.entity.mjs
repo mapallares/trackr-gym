@@ -14,43 +14,53 @@ export class Role extends Entity {
     static columns = [
         {
             name: 'id',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'name',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'description',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'childOfId',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'status',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'isActive',
-            type: 'boolean'
+            type: 'boolean',
+            nulleable: false
         },
         {
             name: 'createdAt',
-            type: 'date'
+            type: 'date',
+            nulleable: false
         },
         {
             name: 'createdBy',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'updatedAt',
-            type: 'date'
+            type: 'date',
+            nulleable: true
         },
         {
             name: 'updatedBy',
-            type: 'string'
+            type: 'string',
+            nulleable: true
         }
     ]
 

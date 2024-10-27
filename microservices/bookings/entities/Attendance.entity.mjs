@@ -1,13 +1,13 @@
 import Entity from './entity/Entity.mjs'
 
-export class Permission extends Entity {
+export class Attendance extends Entity {
 
     constructor(object) {
-        super(Permission, object)
+        super(Attendance, object)
     }
 
     static table = {
-        name: 'Permissions',
+        name: 'Attendances',
         id: 'id'
     }
 
@@ -18,14 +18,34 @@ export class Permission extends Entity {
             nulleable: false
         },
         {
-            name: 'name',
+            name: 'bookingId',
             type: 'string',
             nulleable: false
         },
         {
-            name: 'description',
+            name: 'userId',
             type: 'string',
             nulleable: false
+        },
+        {
+            name: 'date',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'arrivalTime',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'departureTime',
+            type: 'date',
+            nulleable: false
+        },
+        {
+            name: 'comments',
+            type: 'string',
+            nulleable: true
         },
         {
             name: 'status',
@@ -60,28 +80,23 @@ export class Permission extends Entity {
     ]
 
     static relations = {
-        toMany: [
-            {
-                table: 'RolesPermissions',
-                by: 'permissionId'
-            }
-        ],
+        toMany: [],
         toOne: [
             {
-                table: 'Types',
-                by: 'permissionId'
+                table: 'Bookings',
+                by: 'bookingId'
             }
         ]
     }
 
     get(columns = [], including = true) {
-        return super.get(Permission, columns, including)
+        return super.get(Attendance, columns, including)
     }
 
     set(object, replacing) {
-        return super.set(Permission, object, replacing)
+        return super.set(Attendance, object, replacing)
     }
 
 }
 
-export default Permission
+export default Attendance
