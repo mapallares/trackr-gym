@@ -78,7 +78,7 @@ export class Entity {
     }
 
     static getColumns() {
-        if(!this.columns[0].name || !this.columns[0].type || !this.columns[0].nulleable) throw new UndefinedEntityAttributeError(`Las columnas de la tabla ${this.getTableName()} de la entidad no han sido definidas`)
+        if(!this.columns[0].name || !this.columns[0].type) throw new UndefinedEntityAttributeError(`Las columnas de la tabla ${this.getTableName()} de la entidad no han sido definidas`)
         return this.columns
     }
 
