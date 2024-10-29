@@ -14,23 +14,53 @@ export class InventoryMovement extends Entity {
     static columns = [
         {
             name: 'id',
-            type: 'string'
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'productId',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'paymentId',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'type',
+            type: 'string',
+            nulleable: false
+        },
+        {
+            name: 'quantity',
+            type: 'numeric',
+            nulleable: false
+        },
+        {
+            name: 'description',
+            type: 'string',
+            nulleable: true
         },
         {
             name: 'createdAt',
-            type: 'date'
+            type: 'date',
+            nulleable: false
         },
         {
             name: 'createdBy',
-            type: 'string'
+            type: 'string',
+            nulleable: false
         },
         {
             name: 'updatedAt',
-            type: 'date'
+            type: 'date',
+            nulleable: true
         },
         {
             name: 'updatedBy',
-            type: 'string'
+            type: 'string',
+            nulleable: true
         }
     ]
 
@@ -38,8 +68,8 @@ export class InventoryMovement extends Entity {
         toMany: [],
         toOne: [
             {
-                table: 'Users',
-                by: 'userId'
+                table: 'Products',
+                by: 'productId'
             }
         ]
     }
