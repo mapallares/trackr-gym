@@ -35,12 +35,14 @@ export class BlockedToken extends Entity {
         {
             name: 'createdAt',
             type: 'date',
-            nulleable: false
+            nulleable: false,
+            default: 'NOW()'
         },
         {
             name: 'createdBy',
             type: 'string',
-            nulleable: false
+            nulleable: false,
+            default: 'System'
         },
         {
             name: 'updatedAt',

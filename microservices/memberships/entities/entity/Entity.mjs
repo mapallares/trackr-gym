@@ -11,7 +11,8 @@ export class Entity {
         {
             name: undefined, 
             type: undefined,
-            nulleable: undefined
+            nulleable: undefined,
+            default: undefined
         }
     ]
 
@@ -25,7 +26,7 @@ export class Entity {
         if(!(object instanceof Object)) throw new Error('No se ha recibido un objeto válido para instanciar Entity')
         entity.getColumns().forEach(column => {
             if(object[column.name] != null && object[column.name] != undefined && typeof object[column.name] != column.type) Error(`El valor de la columna ${column.name} debe ser de tipo ${column.type}`)
-            this[column.name] = object[column.name] || null
+            this[column.name] = object[column.name] || column.default || null
         })
     }
 

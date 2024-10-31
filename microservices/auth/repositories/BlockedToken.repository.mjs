@@ -16,7 +16,7 @@ export class BlockedTokenRepository extends Repository {
     }
 
     static async save(token) {
-        return await super.save(BlockedToken, token)
+        return await super.saveAll(BlockedToken, token)
     }
 
 }

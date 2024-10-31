@@ -64,7 +64,11 @@ export class AuthenticationController extends Controller {
                 expiresIn: process.env.JWT_EXPIRES_IN 
             })
           
-            return response.status(201).json({ token })
+            return response.cookie('access_token', token, {
+                httpOnly: true,
+                sameSite: 'strict',
+                maxAge: 1000 * 60 * 60
+            }).status(201).json({ token })
         })
     }
 
@@ -72,9 +76,9 @@ export class AuthenticationController extends Controller {
         super.process(request, response, async () => {
             const token = request.headers['authorization']
             
-            await BlockedTokenService.saveToken({ token: token, userId: request.user.userId})
+            await BlockedTokenService.saveToken({ token: token, userId: request.user.userId })
             
-            return response.status(200).json({ message: 'El token ha sido bloqueado con éxito' })
+            return response.clearCookie('access_token').status(200).json({ message: 'El token ha sido bloqueado con éxito' })
         })
     }
 

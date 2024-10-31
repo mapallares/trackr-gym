@@ -50,27 +50,32 @@ export class Membership extends Entity {
         {
             name: 'wasRenewed',
             type: 'boolean',
-            nulleable: false
+            nulleable: false,
+            default: false
         },
         {
             name: 'isCancelled',
             type: 'boolean',
-            nulleable: false
+            nulleable: false,
+            default: false
         },
         {
             name: 'isActive',
             type: 'boolean',
-            nulleable: false
+            nulleable: false,
+            default: true
         },
         {
             name: 'createdAt',
             type: 'date',
-            nulleable: false
+            nulleable: false,
+            default: 'NOW()'
         },
         {
             name: 'createdBy',
             type: 'string',
-            nulleable: false
+            nulleable: false,
+            default: 'System'
         },
         {
             name: 'updatedAt',

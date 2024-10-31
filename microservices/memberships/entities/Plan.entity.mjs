@@ -40,32 +40,38 @@ export class Plan extends Entity {
         {
             name: 'price',
             type: 'numeric',
-            nulleable: false
+            nulleable: false,
+            default: 0
         },
         {
             name: 'ability',
             type: 'numeric',
-            nulleable: false
+            nulleable: false,
+            default: 1
         },
         {
             name: 'status',
             type: 'string',
-            nulleable: false
+            nulleable: false,
+            default: 'Created'
         },
         {
             name: 'isActive',
             type: 'boolean',
-            nulleable: false
+            nulleable: false,
+            default: true
         },
         {
             name: 'createdAt',
             type: 'date',
-            nulleable: false
+            nulleable: false,
+            default: 'NOW()'
         },
         {
             name: 'createdBy',
             type: 'string',
-            nulleable: false
+            nulleable: false,
+            default: 'System'
         },
         {
             name: 'updatedAt',

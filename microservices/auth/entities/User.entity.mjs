@@ -45,32 +45,38 @@ export class User extends Entity {
         {
             name: 'isOnline',
             type: 'boolean',
-            nulleable: false
+            nulleable: false,
+            default: false
         },
         {
             name: 'status',
             type: 'string',
-            nulleable: false
+            nulleable: false,
+            default: 'Created'
         },
         {
             name: 'isActive',
             type: 'boolean',
-            nulleable: false
+            nulleable: false,
+            default: true
         },
         {
             name: 'registerDate',
             type: 'date',
-            nulleable: false
+            nulleable: false,
+            default: 'NOW()'
         },
         {
             name: 'createdAt',
             type: 'date',
-            nulleable: false
+            nulleable: false,
+            default: 'NOW()'
         },
         {
             name: 'createdBy',
             type: 'string',
-            nulleable: false
+            nulleable: false,
+            default: 'System'
         },
         {
             name: 'updatedAt',

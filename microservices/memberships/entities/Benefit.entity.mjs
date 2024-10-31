@@ -35,22 +35,26 @@ export class Benefit extends Entity {
         {
             name: 'status',
             type: 'string',
-            nulleable: false
+            nulleable: false,
+            default: 'Created'
         },
         {
             name: 'isActive',
             type: 'boolean',
-            nulleable: false
+            nulleable: false,
+            default: true
         },
         {
             name: 'createdAt',
             type: 'date',
-            nulleable: false
+            nulleable: false,
+            default: 'NOW()'
         },
         {
             name: 'createdBy',
             type: 'string',
-            nulleable: false
+            nulleable: false,
+            default: 'System'
         },
         {
             name: 'updatedAt',

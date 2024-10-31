@@ -6,7 +6,13 @@
     "description": "",
     "type": "module",
     "scripts": {
-      "dev": "node --watch api.js"
-    }
-  }
-  
+        "dev": "node --watch api.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.1",
+        "jsonwebtoken": "^9.0.2",
+        "pg": "^8.13.0"
+      }
+}
