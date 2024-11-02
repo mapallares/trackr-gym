@@ -5,6 +5,7 @@ import UserService from '../services/User.service.mjs'
 import { RoleNotFoundError } from '../errors/error/RoleNotFound.error.mjs'
 import { UserNotFoundError } from '../errors/error/UserNotFound.error.mjs'
 import { NotFoundError } from '../errors/error/NotFound.error.mjs'
+import RoleDTO from '../dtos/Role.dto.mjs'
 
 export class RoleController extends Controller {
     
@@ -25,7 +26,7 @@ export class RoleController extends Controller {
 
             const role = await RoleService.saveRole({ name, description, createdBy: request.user.name })
 
-            return response.status(201).json(role)
+            return response.status(201).json(new RoleDTO(role))
         }, ['Admin'])
     }
 
@@ -36,7 +37,7 @@ export class RoleController extends Controller {
             const role = await RoleService.findRoleByName(name)
             if(!role) throw new RoleNotFoundError(`El rol ${name} no existe`)
             
-            return response.status(200).json(role)
+            return response.status(200).json(new RoleDTO(role))
         }, ['Admin'])
     }
 
@@ -52,7 +53,7 @@ export class RoleController extends Controller {
 
             const role = await RoleService.updateRoleById(roleFound.id, { name, description, updatedAt: 'now()', updatedBy: request.user.name })
             
-            return response.status(201).json(role)        
+            return response.status(201).json(new RoleDTO(role))        
         })
     }
 

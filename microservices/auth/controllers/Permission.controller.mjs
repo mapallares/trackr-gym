@@ -5,6 +5,7 @@ import RoleService from '../services/Role.service.mjs'
 import { RoleNotFoundError } from '../errors/error/RoleNotFound.error.mjs'
 import { PermissionNotFoundError } from '../errors/error/PermissionNotFound.error.mjs'
 import { NotFoundError } from '../errors/error/NotFound.error.mjs'
+import PermissionDTO from '../dtos/Permission.dto.mjs'
 
 export class PermissionController extends Controller {
 
@@ -26,7 +27,7 @@ export class PermissionController extends Controller {
 
             const permission = await PermissionService.savePermission({ name, description, createdBy: request.user.name }, type)
             
-            return response.status(201).json(permission)
+            return response.status(201).json(new PermissionDTO(permission))
         }, ['Admin'])
     }
 
@@ -37,7 +38,7 @@ export class PermissionController extends Controller {
             const permission = await PermissionService.findPermissionByName(name)
             if (!permission) throw new PermissionNotFoundError(`El permiso ${name} no existe`)
                 
-            return response.status(200).json(permission)        
+            return response.status(200).json(new PermissionDTO(permission))        
         }, ['Admin'])
     }
 
@@ -53,7 +54,7 @@ export class PermissionController extends Controller {
 
             const permission = await PermissionService.updatePermissionById(permissionFound.id, { name, description, updatedAt: 'now()', updatedBy: request.user.name })
             
-            return response.status(201).json(permission)
+            return response.status(201).json(new PermissionDTO(permission))
         }, ['Admin'])
     }
 

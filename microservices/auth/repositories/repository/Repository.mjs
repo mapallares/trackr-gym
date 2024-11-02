@@ -1,4 +1,3 @@
-import Entity from '../../entities/entity/Entity.mjs'
 import Database from '../../databases/postgres.database.mjs'
 
 export class Repository {
@@ -24,144 +23,126 @@ export class Repository {
   }
 
   static async saveAll(entity, data) {
-    const name = entity.getTableName()
-    const keys = Object.keys(data).map(key => `"${key}"`).join(', ')
-    const values = Object.values(data)
-    const placeholders = values.map((_, i) => `'${_}'`).join(', ')
-    const query = `INSERT INTO "${name}" 
-    (${keys}) 
-    VALUES (${placeholders}) 
+    const columns = Object.keys(data).map(key => `"${key}"`).join(', ')
+    const values = Object.values(data).map((_, i) => ['string', 'date'].includes(entity.getColumn(Object.keys(data)[i]).type) ? `'${_}'` : _).join(', ')
+    const query = `INSERT INTO "${entity.getTableName()}" 
+    (${columns}) 
+    VALUES (${values}) 
     RETURNING *`
-
     try {
       const result = await Database.select(query)
-      return result[0] || null
+      return result[0] ? new entity(result[0]) : null
     } catch (error) {
-      console.error(`Error al guardar el registro en ${name}`, error)
+      console.error(`Error al guardar el registro en ${entity.getTableName()}`, error)
       throw error
     }
   }
 
   static async findAll(entity) {
-    const name = entity.getTableName()
     const query = `SELECT * 
-    FROM "${name}"`
-
+    FROM "${entity.getTableName()}"`
     try {
       const result = await Database.select(query)
-      return result || []
+      return result.map(object => new entity(object)) || []
     } catch (error) {
-      console.error(`Error al obtener todos los registros de ${name}`, error)
+      console.error(`Error al obtener todos los registros de ${entity.getTableName()}`, error)
       throw error
     }
   }
 
   static async findById(entity, identifier) {
-    const { name, id } = entity.getTable()
+    const id = entity.getColumn(entity.getTableId())
     const query = `SELECT * 
-    FROM "${name}" 
-    WHERE "${id}" = '${identifier}'`
-
+    FROM "${entity.getTableName()}" 
+    WHERE "${entity.getTableId()}" = ${['string', 'date'].includes(id.type) ? `'${identifier}'` : `${identifier}`}`
     try {
       const result = await Database.select(query)
-      return result[0] || null
+      return result[0] ? new entity(result[0]) : null
     } catch (error) {
-      console.error(`Error al obtener el registro con ${id} = "${identifier}" de ${name}`, error)
+      console.error(`Error al obtener el registro con ${entity.getTableId()} = "${identifier}" de ${entity.getTableName()}`, error)
       throw error
     }
   }
 
-  static async findByColumn(entity, value) {
-    const column = entity.getColumn(Object.keys(value)[0])
-    value = Object.values(value)[0]
-    const tableName = entity.getTableName()
+  static async findByColumn(entity, columnObject) {
+    const column = entity.getColumn(Object.keys(columnObject)[0])
+    const value = Object.values(columnObject)[0]
     const query = `SELECT * 
-    FROM "${tableName}" 
+    FROM "${entity.getTableName()}" 
     WHERE "${column.name}" = ${['string', 'date'].includes(column.type) ? `'${value}'` : value}`
-    
     try {
       const result = await Database.select(query)
-      return result[0] || null
+      return result[0] ? new entity(result[0]) : null
     } catch (error) {
-      console.error(`Error al obtener el registro con ${column.name} = "${value}" de ${tableName}`, error)
+      console.error(`Error al obtener el registro con ${column.name} = "${value}" de ${entity.getTableName()}`, error)
       throw error
     }
   }
 
-  static async findAllByColumn(entity, value) {
-    const column = entity.getColumn(Object.keys(value)[0])
-    value = Object.values(value)[0]
-    const tableName = entity.getTableName()
+  static async findAllByColumn(entity, columnObject) {
+    const column = entity.getColumn(Object.keys(columnObject)[0])
+    const value = Object.values(columnObject)[0]
     const query = `SELECT * 
-    FROM "${tableName}" 
+    FROM "${entity.getTableName()}" 
     WHERE "${column.name}" = ${['string', 'date'].includes(column.type) ? `'${value}'` : value}`
-    
     try {
       const result = await Database.select(query)
-      return result || []
+      return result.map(object => new entity(object)) || []
     } catch (error) {
-      console.error(`Error al obtener el registro con ${column.name} = "${value}" de ${tableName}`, error)
+      console.error(`Error al obtener el registro con ${column.name} = "${value}" de ${entity.getTableName()}`, error)
       throw error
     }
   }
 
   static async updateById(entity, identifier, data) {
-    const { name, id } = entity.getTable()
-    const column = entity.getColumn(id)
-    const value = identifier
+    const id = entity.getColumn(entity.getTableId())
     const keys = Object.keys(data)
     const values = Object.values(data)
-    const setClause = keys.map((key, i) => `"${key}" = ${['string', 'date'].includes(entity.getColumn(key).type) ? `'${values[i]}'` : `${values[i]}`}`).join(', ')
-    const query = `UPDATE "${name}" 
-    SET ${setClause} 
-    WHERE "${column.name}" = ${['string', 'date'].includes(column.type) ? `'${value}'` : `${value}`}
+    const columns = keys.map((key, i) => `"${key}" = ${['string', 'date'].includes(entity.getColumn(key).type) ? `'${values[i]}'` : `${values[i]}`}`).join(', ')
+    const query = `UPDATE "${entity.getTableName()}" 
+    SET ${columns} 
+    WHERE "${id.name}" = ${['string', 'date'].includes(id.type) ? `'${identifier}'` : `${identifier}`}
     RETURNING *`
-
     try {
       const result = await Database.query(query)
       console.log(result)
-      return result.rows[0] || null
+      return result.rows[0] ? new entity(result.rows[0]) : null
     } catch (error) {
-      console.error(`Error al actualizar el registro con ${column.name} = "${value}" en ${name}`, error)
+      console.error(`Error al actualizar el registro con ${id.name} = "${identifier}" en ${entity.getTableName()}`, error)
       throw error
     }
   }
 
-  static async updateByColumn(entity, value, data) {
-    const column = entity.getColumn(Object.keys(value)[0])
-    value = Object.values(value)[0]
-    const { name, id } = entity.getTable()
+  static async updateByColumn(entity, columnObject, data) {
+    const column = entity.getColumn(Object.keys(columnObject)[0])
+    const value = Object.values(columnObject)[0]
     const keys = Object.keys(data)
     const values = Object.values(data)
-    const setClause = keys.map((key, i) => `"${key}" = ${['string', 'date'].includes(entity.getColumn(key).type) ? `'${values[i]}'` : `${values[i]}`}`).join(', ')
-    const query = `UPDATE "${name}" 
-    SET ${setClause} 
+    const columns = keys.map((key, i) => `"${key}" = ${['string', 'date'].includes(entity.getColumn(key).type) ? `'${values[i]}'` : `${values[i]}`}`).join(', ')
+    const query = `UPDATE "${entity.getTableName()}" 
+    SET ${columns} 
     WHERE "${column.name}" = ${['string', 'date'].includes(column.type) ? `'${value}'` : `${value}`}
     RETURNING *`
-
     try {
       const result = await Database.query(query)
       console.log(result)
-      return result.rows[0] || null
+      return result.rows[0] ? new entity(result.rows[0]) : null
     } catch (error) {
-      console.error(`Error al actualizar el registro con ${column.name} = "${value}" en ${name}`, error)
+      console.error(`Error al actualizar el registro con ${column.name} = "${value}" en ${entity.getTableName()}`, error)
       throw error
     }
   }
 
   static async deleteById(entity, identifier) {
-    const { name, id } = entity.getTable()
-    const column = entity.getColumn(id)
-    const value = identifier
-    const query = `DELETE FROM "${name}"
-    WHERE "${column.name}" = ${['string', 'date'].includes(column.type) ? `'${value}'` : value}
+    const id = entity.getColumn(entity.getTableId())
+    const query = `DELETE FROM "${entity.getTableName()}"
+    WHERE "${id.name}" = ${['string', 'date'].includes(id.type) ? `'${identifier}'` : identifier}
     RETURNING *`
-
     try {
       const result = await Database.select(query, [identifier])
       return result.rows[0] || null
     } catch (error) {
-      console.error(`Error al eliminar el registro con ${id} = "${identifier}" de ${name}`, error)
+      console.error(`Error al eliminar el registro con ${id.name} = "${identifier}" de ${entity.getTableName()}`, error)
       throw error
     }
   }

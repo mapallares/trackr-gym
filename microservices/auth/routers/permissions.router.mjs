@@ -9,9 +9,9 @@ permissionsRouter.post('/permissions', MiddlewareController.verify, PermissionCo
 permissionsRouter.get('/permissions/:name', MiddlewareController.verify, PermissionController.getByName)
 permissionsRouter.put('/permissions/:name', MiddlewareController.verify, PermissionController.putByName)
 permissionsRouter.delete('/permissions/:name', MiddlewareController.verify, PermissionController.deleteByName)
-permissionsRouter.post('/permissions-assign', MiddlewareController.verify, PermissionController.assign)
-permissionsRouter.get('/permissions-check', MiddlewareController.verify, PermissionController.check)
-permissionsRouter.delete('/permissions-revoke', MiddlewareController.verify, PermissionController.revoke)
+permissionsRouter.post('/assign/permissions', MiddlewareController.verify, PermissionController.assign)
+permissionsRouter.get('/check/permissions', MiddlewareController.verify, PermissionController.check)
+permissionsRouter.delete('/revoke/permissions', MiddlewareController.verify, PermissionController.revoke)
 
 
 export default permissionsRouter

@@ -26,6 +26,10 @@ export class IUserService extends Service {
         return super.implements()
     }
 
+    static async updateUserById(id, user) {
+        return super.implements()
+    }
+
     static async relateRole(userId, roleId) {
         return super.implements()
     }

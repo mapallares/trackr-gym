@@ -9,8 +9,8 @@ rolesRouter.post('/roles', MiddlewareController.verify, RoleController.postOne)
 rolesRouter.get('/roles/:name', MiddlewareController.verify, RoleController.getByName)
 rolesRouter.put('/roles/:name', MiddlewareController.verify, RoleController.putByName)
 rolesRouter.delete('/roles/:name', MiddlewareController.verify, RoleController.deleteByName)
-rolesRouter.post('/roles-assign', MiddlewareController.verify, RoleController.assign)
-rolesRouter.get('/roles-check', MiddlewareController.verify, RoleController.check)
-rolesRouter.delete('/roles-revoke', MiddlewareController.verify, RoleController.revoke)
+rolesRouter.post('/assign/roles', MiddlewareController.verify, RoleController.assign)
+rolesRouter.get('/check/roles', MiddlewareController.verify, RoleController.check)
+rolesRouter.delete('/revoke/roles', MiddlewareController.verify, RoleController.revoke)
 
 export default rolesRouter

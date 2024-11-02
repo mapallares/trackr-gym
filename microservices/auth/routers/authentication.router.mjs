@@ -6,6 +6,7 @@ const authenticationRouter = express.Router()
 
 authenticationRouter.post('/register', AuthenticationController.register)
 authenticationRouter.put('/modify', MiddlewareController.verify, AuthenticationController.modify)
+authenticationRouter.patch('/reset', MiddlewareController.verify, AuthenticationController.reset)
 authenticationRouter.post('/login', AuthenticationController.login)
 authenticationRouter.post('/logout', MiddlewareController.verify, AuthenticationController.logout)
 

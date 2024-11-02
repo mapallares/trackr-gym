@@ -10,7 +10,7 @@ export class MiddlewareController extends Controller {
 
     static async verify(request, response, next) {
         super.process(request, response, async () => {
-            const token = request.headers['authorization']
+            const token = request.headers['authorization'] || request.cookies.access_token
             if (!token) throw new TokenRequiredError('Se requiere un token de autenticación')
 
             if (await BlockedTokenService.existsBlockedTokenByToken(token)) throw new UnauthorizedError('El token está bloqueado')

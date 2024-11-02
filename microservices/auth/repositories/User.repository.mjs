@@ -47,6 +47,10 @@ export class UserRepository extends Repository {
     static async updateByUsername(username, user) {
         return await super.updateByColumn(User, { username }, user)
     }
+
+    static async updateById(id, user) {
+        return await super.updateById(User, id, user)
+    }
     
     static async findUserRole(userId, roleId) {
         return await super.find(`SELECT * 

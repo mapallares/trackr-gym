@@ -10,7 +10,7 @@ import { InvalidCredentialsError } from '../errors/error/InvalidCredentials.erro
 import { RegisterInvalidFormatError } from '../errors/error/RegisterInvalidFormat.error.mjs'
 import { LoginInvalidFormatError } from '../errors/error/LoginInvalidFormat.error.mjs'
 import { UnauthorizedError } from '../errors/error/Unauthorized.error.mjs'
-import { ControllerMethodNotImplementedError } from '../errors/error/ControllerMethodNotImplemented.error.mjs'
+import UserDTO from '../dtos/User.dto.mjs'
 
 export class AuthenticationController extends Controller {
 
@@ -27,13 +27,40 @@ export class AuthenticationController extends Controller {
             const hashedPassword = await bcrypt.hash(password, 10)
             const user = await UserService.saveUser({ name, username, email, phone, password: hashedPassword })
 
-            return response.status(201).json(user)
+            return response.status(201).json(new UserDTO(user))
         })
     }
 
     static async modify(request, response) {
         super.process(request, response, async () => {
-            throw new ControllerMethodNotImplementedError('Modulo en construcción')
+            const { name, username, email, phone } = request.body
+
+            Validator.required({ name, username, email, phone })
+            Validator.email({ email })
+            Validator.length({ username }, 3, 50)
+            Validator.length({ phone }, 5, 100)
+
+            const user = await UserService.updateUserById(request.user.userId, { name, username, email, phone, updatedAt: 'now()', updatedBy: request.user.name })
+
+            return response.status(200).json(new UserDTO(user))
+        })
+    }
+
+    static async reset(request, response) {
+        super.process(request, response, async () => {
+            const { oldPassword, newPassword} = request.body
+
+            Validator.required({ oldPassword, newPassword })
+            Validator.isStrongPassword({ newPassword })
+
+            const user = await UserService.findUserById(request.user.userId)
+            if (!(await bcrypt.compare(oldPassword, user.password))) throw new InvalidCredentialsError('El password es inconrrecto')
+
+            const hashedPassword = await bcrypt.hash(newPassword, 10)
+
+            await UserService.updateUserById(request.user.userId, { password: hashedPassword, updatedAt: 'now()', updatedBy: request.user.name })
+
+            return response.status(200).json({ message: 'Contraseña cambiada exitosamente'})
         })
     }
 
@@ -66,19 +93,19 @@ export class AuthenticationController extends Controller {
           
             return response.cookie('access_token', token, {
                 httpOnly: true,
-                sameSite: 'strict',
-                maxAge: 1000 * 60 * 60
+                sameSite: 'lax', // Cambiar a strict cuando esté en producción
+                maxAge: 1000 * 60 * 60 * 24
             }).status(201).json({ token })
         })
     }
 
     static async logout(request, response) {
         super.process(request, response, async () => {
-            const token = request.headers['authorization']
+            const token = request.headers['authorization'] || request.cookies.access_token
             
             await BlockedTokenService.saveToken({ token: token, userId: request.user.userId })
-            
-            return response.clearCookie('access_token').status(200).json({ message: 'El token ha sido bloqueado con éxito' })
+            response.clearCookie('access_token')
+            return response.status(200).json({ message: 'El token ha sido bloqueado con éxito' })
         })
     }
 

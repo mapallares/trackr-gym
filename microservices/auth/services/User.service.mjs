@@ -44,6 +44,10 @@ export class UserService extends IUserService {
         return await UserRepository.updateByUsername(username, user)
     }
 
+    static async updateUserById(id, user) {
+        return await UserRepository.updateById(id, user)
+    }
+
     static async relateRole(userId, roleId) {
         return await UserRepository.relateRole(userId, roleId)
     }

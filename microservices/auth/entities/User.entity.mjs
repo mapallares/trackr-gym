@@ -33,6 +33,11 @@ export class User extends Entity {
             nulleable: false
         },
         {
+            name: 'phone',
+            type: 'string',
+            nulleable: false
+        },
+        {
             name: 'password',
             type: 'string',
             nulleable: false
