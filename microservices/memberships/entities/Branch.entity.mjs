@@ -18,6 +18,11 @@ export class Branch extends Entity {
             nulleable: false
         },
         {
+            name: 'gymId',
+            type: 'string',
+            nulleable: false
+        },
+        {
             name: 'name',
             type: 'string',
             nulleable: false

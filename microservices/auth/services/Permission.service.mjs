@@ -1,9 +1,9 @@
+import Service from './service/Service.mjs'
 import { PermissionAlreadyExistError } from '../errors/error/PermissionAlreadyExist.error.mjs'
 import { PermissionNotFoundError } from '../errors/error/PermissionNotFound.error.mjs'
 import PermissionRepository from '../repositories/Permission.repository.mjs'
-import IPermissionService from './interfaces/IPermission.service.mjs'
 
-export class PermissionService extends IPermissionService {
+export class PermissionService extends Service {
     
     static async findAllPermissions() {
         return await PermissionRepository.findAll()

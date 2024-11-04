@@ -1,18 +1,19 @@
 {
-    "name": "memberships",
-    "version": "1.0.0",
-    "author": "Binarium Team",
-    "license": "ISC",
-    "description": "",
-    "type": "module",
-    "scripts": {
-        "dev": "node --watch api.js"
-    },
-    "dependencies": {
-        "cors": "^2.8.5",
-        "dotenv": "^16.4.5",
-        "express": "^4.21.1",
-        "jsonwebtoken": "^9.0.2",
-        "pg": "^8.13.0"
-      }
+  "name": "memberships",
+  "version": "1.0.0",
+  "author": "Binarium Team",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch api.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.0"
+  }
 }

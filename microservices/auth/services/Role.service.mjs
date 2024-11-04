@@ -1,7 +1,7 @@
+import Service from './service/Service.mjs'
 import RoleRepository from '../repositories/Role.repository.mjs'
-import IRoleService from './interfaces/IRole.service.mjs'
 
-export class RoleService extends IRoleService {
+export class RoleService extends Service {
     
     static async findAllRoles() {
         return await RoleRepository.findAll()

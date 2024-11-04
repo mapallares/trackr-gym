@@ -3,8 +3,8 @@ import Permission from '../entities/Permission.entity.mjs'
 
 export class PermissionDTO extends DTO {
 
-    constructor(user) {
-        super(Permission, user, ['createdAt', 'createdBy', 'updatedAt', 'updatedBy'])
+    constructor(permission) {
+        super(Permission, permission, ['createdAt', 'createdBy', 'updatedAt', 'updatedBy'])
     }
 
 }
