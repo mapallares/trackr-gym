@@ -104,6 +104,10 @@ export class Gym extends Entity {
                 by: 'gymId'
             },
             {
+                table: 'Benefits',
+                by: 'gymId'
+            },
+            {
                 table: 'Plans',
                 by: 'gymId'
             }

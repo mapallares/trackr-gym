@@ -1,4 +1,4 @@
-import { ServiceMethodNotImplementedError } from '../../../errors/error/ServiceMethodNotImplemented.error.mjs'
+import { ServiceMethodNotImplementedError } from '../../errors/error/ServiceMethodNotImplemented.error.mjs'
 
 export class Service {
 

@@ -1,7 +1,7 @@
+import Service from './service/Service.mjs'
 import BlockedTokenRepository from '../repositories/BlockedToken.repository.mjs'
-import IBlockedTokenService from './interfaces/IBlockedToken.service.mjs'
 
-export class BlockedTokenService extends IBlockedTokenService {
+export class BlockedTokenService extends Service {
 
     static async findAllBlockedTokens() {
         return await BlockedTokenRepository.findAll()

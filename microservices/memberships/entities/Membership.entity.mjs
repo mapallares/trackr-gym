@@ -28,7 +28,7 @@ export class Membership extends Entity {
             nulleable: false
         },
         {
-            name: 'payId',
+            name: 'paymentId',
             type: 'string',
             nulleable: false
         },
@@ -64,6 +64,12 @@ export class Membership extends Entity {
             type: 'boolean',
             nulleable: false,
             default: true
+        },
+        {
+            name: 'status',
+            type: 'string',
+            nulleable: false,
+            default: 'Created'
         },
         {
             name: 'createdAt',

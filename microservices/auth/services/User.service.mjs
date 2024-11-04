@@ -1,11 +1,11 @@
+import Service from './service/Service.mjs'
 import UserRepository from '../repositories/User.repository.mjs'
 import RoleRepository from '../repositories/Role.repository.mjs'
-import IUserService from './interfaces/IUser.service.mjs'
 import { UserNotFoundError } from '../errors/error/UserNotFound.error.mjs'
 import { UserAlreadyExistError } from '../errors/error/UserAlreadyExist.error.mjs'
 import { RoleNotFoundError } from '../errors/error/RoleNotFound.error.mjs'
 
-export class UserService extends IUserService {
+export class UserService extends Service {
     
     static async findAllUsers() {
         return await UserRepository.findAll()

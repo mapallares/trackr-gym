@@ -3,8 +3,8 @@ import Role from '../entities/Role.entity.mjs'
 
 export class RoleDTO extends DTO {
 
-    constructor(user) {
-        super(Role, user, ['createdAt', 'createdBy', 'updatedAt', 'updatedBy'])
+    constructor(role) {
+        super(Role, role, ['createdAt', 'createdBy', 'updatedAt', 'updatedBy'])
     }
 
 }

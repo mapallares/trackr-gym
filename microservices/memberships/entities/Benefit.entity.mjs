@@ -18,6 +18,11 @@ export class Benefit extends Entity {
             nulleable: false
         },
         {
+            name: 'gymId',
+            type: 'string',
+            nulleable: false
+        },
+        {
             name: 'name',
             type: 'string',
             nulleable: false
@@ -75,7 +80,12 @@ export class Benefit extends Entity {
                 by: 'benefitId'
             }
         ],
-        toOne: []
+        toOne: [
+            {
+                table: 'Gyms',
+                by: 'gymId'
+            }
+        ]
     }
 
     get(columns = [], including = true) {
