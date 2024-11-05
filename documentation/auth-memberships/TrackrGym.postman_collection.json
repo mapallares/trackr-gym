@@ -1,0 +1,3281 @@
+{
+	"info": {
+		"_postman_id": "8dcd693f-41ac-41d5-94ce-3f8e8c1e9c73",
+		"name": "TrackrGym",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30782391"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Johan Robles\",\r\n    \"username\": \"jrobles\",\r\n    \"email\": \"jrobles@unimagdalena.edu.co\",\r\n    \"phone\": \"57+ 3000000000\",\r\n    \"password\": \"JRobles1*\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/register",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let token = pm.response.json().token\r",
+											"pm.collectionVariables.set('auth_token', token)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"jrobles\",\r\n    \"password\": \"jrobles\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/login",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/logout",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Johan Robles\",\r\n    \"username\": \"jrobles\",\r\n    \"email\": \"jrobles@unimagdalena.edu.co\",\r\n    \"phone\": \"57+ 3000000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/modify",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"modify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"jroblesss\",\r\n    \"newPassword\": \"JRobles1*\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/reset",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"reset"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Authorization",
+					"item": [
+						{
+							"name": "Session",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/session",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"session"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Session Roles",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/session/roles",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"session",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Session Permissions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/session/permissions",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"session",
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/roles",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3ZTZlMzdkOC1mNGFiLTQ2ODEtODM2Zi02ZGE5ZDM1MTcyZDMiLCJuYW1lIjoiSm9oYW4gUm9ibGVzIiwidXNlcm5hbWUiOiJqcm9ibGVzIiwiZW1haWwiOiJqcm9ibGVzQHRyYWNrci5neW0iLCJyb2xlcyI6WyJVc2VyIl0sInBlcm1pc3Npb25zIjpbIlVwZGF0ZVVzZXIiLCJDcmVhdGVVc2VyIiwiQ3JlYXRlTWVtYmVyc2hpcCIsIlJlYWRNZW1iZXJzaGlwIiwiVXBkYXRlTWVtYmVyc2hpcCIsIlJlYWRQbGFuIiwiUmVhZFVzZXIiLCJEZWxldGVNZW1iZXJzaGlwIl0sImlhdCI6MTczMDc2NzQ3MiwiZXhwIjoxNzMzMzU5NDcyfQ.L41dehxip818ufola2H4kZmTMyG2gUZutQf8dO3VocU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SuperAdmin\",\r\n    \"description\": \"Role con todos los permisos asignados\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/roles",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByName",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/roles/:name",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"roles",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "Admin"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutByName",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"description\": \"Un rol con todos los permisos asignados\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/roles/:name",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"roles",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "SUPER_ADMIN"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteByName",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/roles/:name",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"roles",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "SUPER_ADMIN"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Assign",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"jrobles\",\r\n    \"roles\": [\"Admin\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/assign/roles",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"assign",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"jrobles\",\r\n    \"roles\": [\"Admin\", \"User\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/check/roles",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"check",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Revoke",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"jrobles\",\r\n    \"roles\": [\"Admin\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/revoke/roles",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"revoke",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Permissions",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/permissions",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3ZTZlMzdkOC1mNGFiLTQ2ODEtODM2Zi02ZGE5ZDM1MTcyZDMiLCJuYW1lIjoiSm9oYW4gUm9ibGVzIiwidXNlcm5hbWUiOiJqcm9ibGVzIiwiZW1haWwiOiJqcm9ibGVzQHRyYWNrci5neW0iLCJyb2xlcyI6WyJVc2VyIl0sInBlcm1pc3Npb25zIjpbIlVwZGF0ZVVzZXIiLCJDcmVhdGVVc2VyIiwiQ3JlYXRlTWVtYmVyc2hpcCIsIlJlYWRNZW1iZXJzaGlwIiwiVXBkYXRlTWVtYmVyc2hpcCIsIlJlYWRQbGFuIiwiUmVhZFVzZXIiLCJEZWxldGVNZW1iZXJzaGlwIl0sImlhdCI6MTczMDc2NzQ3MiwiZXhwIjoxNzMzMzU5NDcyfQ.L41dehxip818ufola2H4kZmTMyG2gUZutQf8dO3VocU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ReadMemberships\",\r\n    \"description\": \"Poder ver las membresías\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/permissions",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByName",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/permissions/:name",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"permissions",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "ReadPlan"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutByName",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"UpdateUser\",\r\n    \"description\": \"Poder actualizar los usuarios del sistema\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/permissions/:name",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"permissions",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "UpdateUser"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteByName",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/permissions/:name",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"permissions",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "ReadUsers"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Assign",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"User\",\r\n    \"permissions\": [\"ReadPlan\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/assign/permissions",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"assign",
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"User\",\r\n    \"permissions\": [\"ReadPlan\", \"UpdateUser\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/check/permissions",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"check",
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Revoke",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"User\",\r\n    \"permissions\": [\"ReadPlan\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/revoke/permissions",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"revoke",
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/users",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByUsername",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_auth}}/users/:username",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"users",
+										":username"
+									],
+									"variable": [
+										{
+											"key": "username",
+											"value": "jrobles"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Johan Robles\",\r\n    \"username\": \"jrobles\",\r\n    \"email\": \"jrobles@unimagdalena.edu.co\",\r\n    \"phone\": \"57+ 3000000000\",\r\n    \"password\": \"JRobles1*\",\r\n    \"role\": \"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/users",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutByUsername",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Johan Robles\",\r\n    \"username\": \"jrobles\",\r\n    \"email\": \"jrobles@unimagdalena.edu.co\",\r\n    \"phone\": \"57+ 3000000000\",\r\n    \"password\": \"JRobles1*\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_auth}}/users/:username",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"users",
+										":username"
+									],
+									"variable": [
+										{
+											"key": "username",
+											"value": "jrobles"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteByUsername",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_auth}}/users/:username",
+									"host": [
+										"{{url_base_auth}}"
+									],
+									"path": [
+										"users",
+										":username"
+									],
+									"variable": [
+										{
+											"key": "username",
+											"value": "usuarioprueba"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Memberships",
+			"item": [
+				{
+					"name": "Gyms",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Gimnasio Fitness Pro\",\r\n  \"slogan\": \"Transforma tu cuerpo, transforma tu vida\",\r\n  \"nit\": \"9876543210\",\r\n  \"type\": \"Gimnasio\",\r\n  \"address\": \"Carrera 45 #67-89, Bogotá, Colombia\",\r\n  \"phone\": \"+57 1 7654321\",\r\n  \"email\": \"info@gimnasiofitnesspro.com\",\r\n  \"foundedIn\": \"2015-03-10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutById",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Gimnasio Fitness Pro\",\r\n  \"slogan\": \"Transforma tu cuerpo, transforma tu vida\",\r\n  \"nit\": \"9876543210\",\r\n  \"type\": \"Gimnasio\",\r\n  \"address\": \"Carrera 45 #67-89, Bogotá, Colombia\",\r\n  \"phone\": \"+57 1 7654321\",\r\n  \"email\": \"info@gimnasiofitnesspro.com\",\r\n  \"foundedIn\": \"2015-03-10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "e64841e3-b73a-4cfd-b908-77539e533ff8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "e64841e3-b73a-4cfd-b908-77539e533ff8"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Networks",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/networks",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"networks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByGimId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:gymId/networks",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":gymId",
+										"networks"
+									],
+									"variable": [
+										{
+											"key": "gymId",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/networks/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"networks",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Instagram\",\r\n  \"description\": \"Una plataforma para compartir fotos y videos.\",\r\n  \"label\": \"Red Social de Fotografía\",\r\n  \"profile\": \"https://www.instagram.com/ejemplo_usuario\",\r\n  \"link\": \"https://www.instagram.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:gymId/networks",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":gymId",
+										"networks"
+									],
+									"variable": [
+										{
+											"key": "gymId",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutById",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Facebook\",\r\n    \"description\": \"Facebook es una red social interactiva y moderna\",\r\n    \"label\": \"Facebook\",\r\n    \"profile\": \"alcomaster\",\r\n    \"link\": \"https://facebook.com.co\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/networks/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"networks",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/networks/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"networks",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Branches",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/branches",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"branches"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByGimId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:gymId/branches",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":gymId",
+										"branches"
+									],
+									"variable": [
+										{
+											"key": "gymId",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/branches/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"branches",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Sede Sur\",\r\n  \"description\": \"Sub sede princial del sur\",\r\n  \"location\": \"Carrera 8, Calle 30, #67-89, Santa Marta\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:gymId/branches",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":gymId",
+										"branches"
+									],
+									"variable": [
+										{
+											"key": "gymId",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutById",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Sede Sur\",\r\n  \"description\": \"Sub sede princial del sur\",\r\n  \"location\": \"Carrera 8, Calle 30, #67-89, Santa Marta\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/branches/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"branches",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/branches/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"branches",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllByPlanId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:planId/branches",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":planId",
+										"branches"
+									],
+									"variable": [
+										{
+											"key": "planId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AssignByPlanId",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:planId/branches/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":planId",
+										"branches",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "planId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										},
+										{
+											"key": "id",
+											"value": "68b62ab4-7e7a-446c-9635-7e47ab6b05e9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RevokeByPlanId",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:planId/branches/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":planId",
+										"branches",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "planId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										},
+										{
+											"key": "id",
+											"value": "0db6eaa6-9e69-4036-a017-6be9c27bd6c9"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Schedules",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/schedules",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"schedules"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByBranchId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/branches/:branchId/schedules",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"branches",
+										":branchId",
+										"schedules"
+									],
+									"variable": [
+										{
+											"key": "branchId",
+											"value": "0db6eaa6-9e69-4036-a017-6be9c27bd6c9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/schedules/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"schedules",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0edc348e-dc74-4280-bea0-cfc45aeefc83"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"Normal\",\r\n    \"description\": \"Un horario normal\",\r\n    \"day\": \"Martes\",\r\n    \"startTime\": \"06:00:00\",\r\n    \"endTime\": \"16:00:00\",\r\n    \"isRecurrent\": true,\r\n    \"isAppliesOnHolidays\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/branches/:branchId/schedules",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"branches",
+										":branchId",
+										"schedules"
+									],
+									"variable": [
+										{
+											"key": "branchId",
+											"value": "0db6eaa6-9e69-4036-a017-6be9c27bd6c9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutById",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"Normal\",\r\n    \"description\": \"Un horario normal\",\r\n    \"day\": \"Lunes\",\r\n    \"startTime\": \"08:00:00\",\r\n    \"endTime\": \"20:00:00\",\r\n    \"isRecurrent\": true,\r\n    \"isAppliesOnHolidays\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/schedules/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"schedules",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/schedules/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"schedules",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Plans",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/plans",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByGimId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:gymId/plans",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":gymId",
+										"plans"
+									],
+									"variable": [
+										{
+											"key": "gymId",
+											"value": "e64841e3-b73a-4cfd-b908-77539e533ff8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Plan Oro\",\r\n    \"description\": \"Un plan completo\",\r\n    \"type\": \"Medio\",\r\n    \"price\": 100000,\r\n    \"ability\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:gymId/plans",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":gymId",
+										"plans"
+									],
+									"variable": [
+										{
+											"key": "gymId",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutById",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Plan Oro\",\r\n    \"description\": \"Un plan completo\",\r\n    \"type\": \"Medio\",\r\n    \"price\": 100000,\r\n    \"ability\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Benefits",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/benefits",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"benefits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByGimId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:gymId/benefits",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":gymId",
+										"benefits"
+									],
+									"variable": [
+										{
+											"key": "gymId",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/benefits/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"benefits",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "17d27533-4c5e-4cad-8df3-f5f86997367d"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostOne",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Acceso a maquinas pro\",\r\n    \"type\": \"Oro\",\r\n    \"description\": \"Podras acceder a las maquinas profesionales\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/gyms/:gymId/benefits",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"gyms",
+										":gymId",
+										"benefits"
+									],
+									"variable": [
+										{
+											"key": "gymId",
+											"value": "6067f598-f209-4603-b260-41191ef92f2b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutById",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Acceso a maquinas pro\",\r\n    \"type\": \"Oro\",\r\n    \"description\": \"Podras acceder a las maquinas profesionales\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/benefits/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"benefits",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/benefits/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"benefits",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "302564eb-6015-4c03-93aa-dbb4e4117faa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllByPlanId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:planId/benefits",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":planId",
+										"benefits"
+									],
+									"variable": [
+										{
+											"key": "planId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AssignByPlanId",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"isApplicable\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:planId/benefits/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":planId",
+										"benefits",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "planId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										},
+										{
+											"key": "id",
+											"value": "17d27533-4c5e-4cad-8df3-f5f86997367d"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ModifyAssignmentByPlanId",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"isApplicable\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:planId/benefits/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":planId",
+										"benefits",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "planId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										},
+										{
+											"key": "id",
+											"value": "76772ea1-9e3f-4275-b618-7449e3d5d981"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RevokeByPlanId",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/plans/:planId/benefits/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"plans",
+										":planId",
+										"benefits",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "planId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										},
+										{
+											"key": "id",
+											"value": "17d27533-4c5e-4cad-8df3-f5f86997367d"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Memberships",
+					"item": [
+						{
+							"name": "All",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/all",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_memberships}}/all/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"all",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "56855bb3-2bd6-43b7-a60b-0cb32d4680ca"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activated",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/activated",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"activated"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Expired",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/expired",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"expired"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Suspended",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/suspended",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"suspended"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancelled",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/cancelled",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"cancelled"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deleted",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/deleted",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"deleted"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Renewed",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/renewed",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"renewed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"userId\": \"e1266692-82c1-49b8-8d3e-f1cd60b7c2d1\",\r\n    \"paymentId\": \"e1266692-82c1-49b8-8d3e-f1cd60b7c2d1\",\r\n    \"purchaseDate\": \"2024-10-10T05:00:00.000Z\",\r\n    \"expirationDate\": \"2024-11-11T05:00:00.000Z\",\r\n    \"paymentDueDate\": \"2024-12-12T05:00:00.000Z\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/new/:planId",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"new",
+										":planId"
+									],
+									"variable": [
+										{
+											"key": "planId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Renew",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"paymentId\": \"e1266692-82c1-49b8-8d3e-f1cd60b7c2d1\",\r\n    \"purchaseDate\": \"2024-10-10T05:00:00.000Z\",\r\n    \"expirationDate\": \"2024-11-11T05:00:00.000Z\",\r\n    \"paymentDueDate\": \"2024-12-12T05:00:00.000Z\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/renew/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"renew",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "56855bb3-2bd6-43b7-a60b-0cb32d4680ca"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/cancel/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"cancel",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "56855bb3-2bd6-43b7-a60b-0cb32d4680ca"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"e1266692-82c1-49b8-8d3e-f1cd60b7c2d1\",\r\n    \"paymentId\": \"e1266692-82c1-49b8-8d3e-f1cd60b7c2d1\",\r\n    \"purchaseDate\": \"2024-10-10T05:00:00.000Z\",\r\n    \"expirationDate\": \"2024-11-11T05:00:00.000Z\",\r\n    \"paymentDueDate\": \"2024-12-12T05:00:00.000Z\",\r\n    \"status\": \"Renewed\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_memberships}}/modify/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"modify",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "56855bb3-2bd6-43b7-a60b-0cb32d4680ca"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/delete/:id",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AllUsersMembershipsById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/:id/users",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										":id",
+										"users"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "56855bb3-2bd6-43b7-a60b-0cb32d4680ca"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AssignByUserId",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/:id/users/:userId",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										":id",
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "56855bb3-2bd6-43b7-a60b-0cb32d4680ca"
+										},
+										{
+											"key": "userId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RevokeByUserId",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/:id/users/:userId",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										":id",
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "56855bb3-2bd6-43b7-a60b-0cb32d4680ca"
+										},
+										{
+											"key": "userId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllByUserId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base_memberships}}/users/:userId",
+									"host": [
+										"{{url_base_memberships}}"
+									],
+									"path": [
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "e1266692-82c1-49b8-8d3e-f1cd60b7c2d1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_base_auth",
+			"value": "http://localhost:3001/api/v1/auth",
+			"type": "string"
+		},
+		{
+			"key": "url_base_memberships",
+			"value": "http://localhost:3002/api/v1/memberships",
+			"type": "string"
+		},
+		{
+			"key": "auth_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3ZTZlMzdkOC1mNGFiLTQ2ODEtODM2Zi02ZGE5ZDM1MTcyZDMiLCJuYW1lIjoiSm9oYW4gUm9ibGVzIiwidXNlcm5hbWUiOiJqcm9ibGVzIiwiZW1haWwiOiJqcm9ibGVzQHVuaW1hZ2RhbGVuYS5lZHUuY28iLCJyb2xlcyI6WyJVc2VyIl0sInBlcm1pc3Npb25zIjpbIlVwZGF0ZVVzZXIiLCJDcmVhdGVVc2VyIiwiQ3JlYXRlTWVtYmVyc2hpcCIsIlJlYWRNZW1iZXJzaGlwIiwiVXBkYXRlTWVtYmVyc2hpcCIsIlJlYWRQbGFuIiwiUmVhZFVzZXIiLCJEZWxldGVNZW1iZXJzaGlwIl0sImlhdCI6MTczMDc2OTkwNCwiZXhwIjoxNzMzMzYxOTA0fQ.fAo7TRHblXMurbTBDnVRL9gVNf48FHV_Un2nS49KhGk"
+		}
+	]
+}
