@@ -43,18 +43,19 @@ export class RoleController extends Controller {
 
     static async putByName(request, response) {
         super.process(request, response, async () => {
+            const roleName = request.params.name
             const { name, description } = request.body
+
+            const roleFound = await RoleService.findRoleByName(roleName)
+            if (!roleFound) throw new RoleNotFoundError(`El rol ${roleName} que intenta modificar no existe`)
 
             Validator.required({ name, description })
             Validator.length({ name, description }, 2, 500)
 
-            const roleFound = await RoleService.findRoleByName(name)
-            if (!roleFound) throw new RoleNotFoundError(`El rol ${name} que intenta modificar no existe`)
-
             const role = await RoleService.updateRoleById(roleFound.id, { name, description, updatedAt: 'now()', updatedBy: request.user.name })
             
             return response.status(201).json(new RoleDTO(role))        
-        })
+        }, ['Admin'])
     }
 
     static async deleteByName(request, response) {
