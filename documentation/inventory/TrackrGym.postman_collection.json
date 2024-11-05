@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "0bc662c6-18a8-4774-b7bc-97b3ad616d40",
+		"name": "TrackrGym",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35039972"
+	},
+	"item": [
+		{
+			"name": "Details",
+			"item": [
+				{
+					"name": "Get Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/details",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/details/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"details",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"color\",\r\n    \"value\": \"Rojo\",\r\n    \"type\": \"string\",\r\n    \"isVisible\": true,\r\n    \"productId\": \"3b7e2bde-8f63-4f63-88f4-58a7e38b7cdd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base_inventory}}/details",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"color\",\r\n    \"value\": \"Rojo\",\r\n    \"type\": \"string\",\r\n    \"isVisible\": true,\r\n    \"productId\": \"3b7e2bde-8f63-4f63-88f4-58a7e38b7cdd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base_inventory}}/details/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"details",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Details",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/details/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"details",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/products",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/products/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Camiseta de Algodón\",\r\n    \"description\": \"Camiseta de algodón 100% con diseño exclusivo. Perfecta para cualquier ocasión casual.\",\r\n    \"type\": \"Ropa\",\r\n    \"purchasePrice\": 10.00,\r\n    \"salePrice\": 19.99,\r\n    \"stock\": 150,\r\n    \"productId\": \"3b7e2bde-8f63-4f63-88f4-58a7e38b7cdd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base_inventory}}/products",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Camiseta de Algodón\",\r\n    \"description\": \"Camiseta de algodón 100% con diseño exclusivo. Perfecta para cualquier ocasión casual.\",\r\n    \"type\": \"Ropa\",\r\n    \"purchasePrice\": 10.00,\r\n    \"salePrice\": 19.99,\r\n    \"stock\": 150,\r\n    \"productId\": \"3b7e2bde-8f63-4f63-88f4-58a7e38b7cdd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base_inventory}}/products/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/products/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "InventoryMovements",
+			"item": [
+				{
+					"name": "Get Inventory Movements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/inventoryMovements",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"inventoryMovements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory Movement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/inventoryMovements/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"inventoryMovements",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Inventory Movements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"Compra\",\r\n    \"quantity\": 2,\r\n    \"description\": \"Camisetas de algodón compradas durante la promoción de verano.\",\r\n    \"paymentId\": \"f1c7f334-df62-49a4-a4d4-1c1d476b905d\",\r\n    \"productId\": \"3b7e2bde-8f63-4f63-88f4-58a7e38b7cdd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base_inventory}}/inventoryMovements",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"inventoryMovements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Inventory Movement",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"Compra\",\r\n    \"quantity\": 2,\r\n    \"description\": \"Camisetas de algodón compradas durante la promoción de verano.\",\r\n    \"paymentId\": \"f1c7f334-df62-49a4-a4d4-1c1d476b905d\",\r\n    \"productId\": \"3b7e2bde-8f63-4f63-88f4-58a7e38b7cdd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base_inventory}}/inventoryMovements/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"inventoryMovements",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Inventory Movement",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_base_inventory}}/inventoryMovements/:id",
+							"host": [
+								"{{url_base_inventory}}"
+							],
+							"path": [
+								"inventoryMovements",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_base_inventory",
+			"value": "http://localhost:3005",
+			"type": "string"
+		}
+	]
+}
