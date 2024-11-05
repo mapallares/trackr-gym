@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "9d84298b-bac3-412f-89a1-950ee6910f48",
+		"name": "TrackrGym",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39489869"
+	},
+	"item": [
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "Services",
+					"item": [
+						{
+							"name": "GetServices",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/services",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"services"
+									]
+								},
+								"description": "**GET /services**: Obtiene la lista de todos los servicios.\n\n- **Método**: GET\n    \n- **URL**: `{{url_base_bookings}}/services`"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateService",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Clases de Pilates\",\r\n  \"description\": \"Sesiones de pilates para mejorar la flexibilidad, fuerza y postura.\",\r\n  \"type\": \"Clase grupal\",\r\n  \"cost\": \"15000\",\r\n  \"duration\": 60,\r\n  \"availableFrom\": \"08:00:00\",\r\n  \"availableTo\": \"17:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/services",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"services"
+									]
+								},
+								"description": "**POST /services**: Crea un nuevo servicio.\n\n- **Método**: POST\n    \n- **URL**: `{{url_base_bookings}}/services`\n    \n- **Cuerpo** (JSON):"
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateService",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Clases de Pilates\",\r\n  \"description\": \"Sesiones de pilates para mejorar la flexibilidad, fuerza y postura.\",\r\n  \"type\": \"Clase grupal\",\r\n  \"cost\": \"15000\",\r\n  \"duration\": 60,\r\n  \"availableFrom\": \"08:00:00\",\r\n  \"availableTo\": \"17:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/services/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"services",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**PUT /services/**\n\n: Actualiza un servicio existente.\n\n- **Método**: PUT\n    \n- **URL**: `{{url_base_bookings}}/services/:id`\n    \n- **Parámetro**: `id` (ID del servicio)\n    \n- **Cuerpo** (JSON): igual que el POST"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteService",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/services/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"services",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**DELETE /services/**\n\n: Elimina un servicio.\n\n- **Método**: DELETE\n    \n- **URL**: `{{url_base_bookings}}/services/:id`"
+							},
+							"response": []
+						},
+						{
+							"name": "GetServices",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/services/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"services",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**GET /services/**\n\n: Obtiene detalles de un servicio específico.\n\n- **Método**: GET\n    \n- **URL**: `{{url_base_bookings}}/services/:id`"
+							},
+							"response": []
+						}
+					],
+					"description": "- **Base URL**: `{{url_base_bookings}}/services`\n    \n- **Endpoints**:"
+				},
+				{
+					"name": "Bookings",
+					"item": [
+						{
+							"name": "GetBookings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/bookings",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"bookings"
+									]
+								},
+								"description": "**GET /bookings**: Obtiene la lista de todas las reservas.\n\n- **Método**: GET\n    \n- **URL**: `{{url_base_bookings}}/bookings`"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateBooking",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"branchId\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n  \"name\": \"Yoga Morning Class\",\r\n  \"details\": \"Clase de yoga para principiantes\",\r\n  \"type\": \"Yoga\",\r\n  \"inCharge\": \"Ana Gomez\",\r\n  \"capacity\": 20,\r\n  \"date\": \"2024-11-10\",\r\n  \"startTime\": \"08:00:00\",\r\n  \"endTime\": \"09:30:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/bookings",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"bookings"
+									]
+								},
+								"description": "**POST /bookings**: Crea una nueva reserva.\n\n- **Método**: POST\n    \n- **URL**: `{{url_base_bookings}}/bookings`\n    \n- **Cuerpo** (JSON)"
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateBooking",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"branchId\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n  \"name\": \"Yoga Morning Class\",\r\n  \"details\": \"Clase de yoga para principiantes\",\r\n  \"type\": \"Yoga\",\r\n  \"inCharge\": \"Ana Gomez\",\r\n  \"capacity\": 20,\r\n  \"date\": \"2024-11-10\",\r\n  \"startTime\": \"08:00:00\",\r\n  \"endTime\": \"09:30:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/bookings/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"bookings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**PUT /bookings/**\n\n: Actualiza una reserva existente.\n\n- **Método**: PUT\n    \n- **URL**: `{{url_base_bookings}}/bookings/:id`\n    \n- **Parámetro**: `id` (ID de la reserva)\n    \n- **Cuerpo** (JSON): igual que el POST"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteBooking",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/bookings/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"bookings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**DELETE /bookings/**\n\n: Elimina una reserva.\n\n- **Método**: DELETE\n    \n- **URL**: `{{url_base_bookings}}/bookings/:id`"
+							},
+							"response": []
+						},
+						{
+							"name": "GetBooking",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/bookings/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"bookings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**GET /bookings/**\n\n: Obtiene detalles de una reserva específica.\n\n- **Método**: GET\n    \n- **URL**: `{{url_base_bookings}}/bookings/:id`"
+							},
+							"response": []
+						}
+					],
+					"description": "- **Base URL**: `{{url_base_bookings}}/bookings`\n    \n- **Endpoints**:"
+				},
+				{
+					"name": "Activities",
+					"item": [
+						{
+							"name": "GetActivities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/activities",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"activities"
+									]
+								},
+								"description": "**GET /activities**: Obtiene la lista de todas las actividades.\n\n- **Método**: GET\n    \n- **URL**: `{{url_base_bookings}}/activities`"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateActivity",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"branchId\": \"a1234567-b89c-1234-d567-890e12345678\",\r\n  \"name\": \"Yoga para principiantes\",\r\n  \"details\": \"Clase introductoria de yoga enfocada en técnicas de respiración y flexibilidad.\",\r\n  \"type\": \"Clase grupal\",\r\n  \"inCharge\": \"Ana Martínez\",\r\n  \"capacity\": 20,\r\n  \"date\": \"2024-11-10\",\r\n  \"startTime\": \"09:00:00\",\r\n  \"endTime\": \"10:30:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/activities",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"activities"
+									]
+								},
+								"description": "**POST /activities**: Crea una nueva actividad.\n\n- **Método**: POST\n    \n- **URL**: `{{url_base_bookings}}/activities`\n    \n- **Cuerpo** (JSON):"
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateActivity",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"branchId\": \"a1234567-b89c-1234-d567-890e12345678\",\r\n  \"name\": \"Yoga para principiantes\",\r\n  \"details\": \"Clase introductoria de yoga enfocada en técnicas de respiración y flexibilidad.\",\r\n  \"type\": \"Clase grupal\",\r\n  \"inCharge\": \"Ana Martínez\",\r\n  \"capacity\": 20,\r\n  \"date\": \"2024-11-10\",\r\n  \"startTime\": \"09:00:00\",\r\n  \"endTime\": \"10:30:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/activities/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"activities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**PUT /activities/**\n\n: Actualiza una actividad existente.\n\n- **Método**: PUT\n    \n- **URL**: `{{url_base_bookings}}/activities/:id`\n    \n- **Parámetro**: `id` (ID de la actividad)\n    \n- **Cuerpo** (JSON): igual que el POST"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteActivity",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/activities/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"activities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**DELETE /activities/**\n\n: Elimina una actividad.\n\n- **Método**: DELETE\n    \n- **URL**: `{{url_base_bookings}}/activities/:id`"
+							},
+							"response": []
+						},
+						{
+							"name": "GetActivity",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/activities/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"activities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1ccfa7ab-cda3-45b8-ad9e-6537315ad19d"
+										}
+									]
+								},
+								"description": "**GET /activities/**\n\n: Obtiene detalles de una actividad específica.\n\n- **Método**: GET\n    \n- **URL**: `{{url_base_bookings}}/activities/:id`"
+							},
+							"response": []
+						}
+					],
+					"description": "- **Base URL**: `{{url_base_bookings}}/activities`\n    \n- **Endpoints**:"
+				},
+				{
+					"name": "Attendances",
+					"item": [
+						{
+							"name": "GetAttendances",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/attendances",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"attendances"
+									]
+								},
+								"description": "**GET /attendances**: Obtiene la lista de todas las asistencias.\n\n- **Método**: GET\n    \n- **URL**: `{{url_base_bookings}}/attendances`"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateAttendance",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userId\": \"789e0123-a45b-67c8-d910-111213141516\",\r\n  \"date\": \"2024-11-10\",\r\n  \"arrivalTime\": \"09:00:00\",\r\n  \"departureTime\": \"17:00:00\",\r\n  \"comments\": \"Asistencia para el evento de capacitación\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/acttendances",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"acttendances"
+									]
+								},
+								"description": "**POST /attendances**: Registra una nueva asistencia.\n\n- **Método**: POST\n    \n- **URL**: `{{url_base_bookings}}/attendances`\n    \n- **Cuerpo** (JSON):"
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateAttendance",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userId\": \"789e0123-a45b-67c8-d910-111213141516\",\r\n  \"date\": \"2024-11-10\",\r\n  \"arrivalTime\": \"09:00:00\",\r\n  \"departureTime\": \"17:00:00\",\r\n  \"comments\": \"Asistencia para el evento de capacitación\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_bookings}}/acttendances/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"acttendances",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "012cf2de-5112-4add-a944-9dfdd4fa9221"
+										}
+									]
+								},
+								"description": "**PUT /attendances/**\n\n: Actualiza una asistencia existente.\n\n- **Método**: PUT\n    \n- **URL**: `{{url_base_bookings}}/attendances/:id`\n    \n- **Parámetro**: `id` (ID de la asistencia)\n    \n- **Cuerpo** (JSON): igual que el POST"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteAttendance",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/acttendances/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"acttendances",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "012cf2de-5112-4add-a944-9dfdd4fa9221"
+										}
+									]
+								},
+								"description": "**DELETE /attendances/**\n\n: Elimina un registro de asistencia.\n\n- **Método**: DELETE\n    \n- **URL**: `{{url_base_bookings}}/attendances/:id`"
+							},
+							"response": []
+						},
+						{
+							"name": "GetAttendance",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base_bookings}}/acttendances/:id",
+									"host": [
+										"{{url_base_bookings}}"
+									],
+									"path": [
+										"acttendances",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "012cf2de-5112-4add-a944-9dfdd4fa9221"
+										}
+									]
+								},
+								"description": "**GET /attendances/**\n\n: Obtiene detalles de una asistencia específica.\n\n- **Método**: GET\n    \n- **URL**: `{{url_base_bookings}}/attendances/:id`"
+							},
+							"response": []
+						}
+					],
+					"description": "- **Base URL**: `{{url_base_bookings}}/attendances`\n    \n- **Endpoints**:"
+				}
+			],
+			"description": "Este microservicio de _bookings_ permite gestionar las reservas y programaciones en un sistema de gestión de gimnasios. Facilita la creación, consulta, actualización y eliminación, para gestionar la reservación y asistencia en un sistema de administración de actividades, como clases, eventos y sesiones en instalaciones específicas, dirigido a optimizar la organización de actividades y el seguimiento de usuarios. El microservicio incluye varios servicios interrelacionados que permiten la gestión completa de las reservas, los detalles de cada servicio disponible, el control de asistencia y la administración de actividades.\n\n### Servicios principales:\n\n1. **Services**: Gestiona información detallada de los servicios disponibles, como clases, actividades o eventos, incluyendo el tipo de servicio, descripción, costo, y horarios de disponibilidad.\n    \n2. **Bookings**: Controla la creación, actualización y administración de reservas de usuarios para servicios específicos, garantizando la disponibilidad y evitando conflictos en los horarios.\n    \n3. **Attendances**: Lleva el registro de la asistencia de los usuarios a las reservas previamente realizadas, permitiendo así la verificación y seguimiento de los usuarios en tiempo real.\n    \n4. **Activities**: Administra las actividades específicas dentro del sistema, proporcionando detalles sobre el tipo de actividad, capacidad y el personal encargado."
+		}
+	],
+	"variable": [
+		{
+			"key": "url_base_bookings",
+			"value": "http://localhost:3003/api/v1/bookings"
+		}
+	]
+}
