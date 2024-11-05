@@ -44,13 +44,14 @@ export class PermissionController extends Controller {
 
     static async putByName(request, response) {
         super.process(request, response, async () => {
+            const permissionName = request.params.name
             const { name, description } = request.body
+
+            const permissionFound = await PermissionService.findPermissionByName(permissionName)
+            if (!permissionFound) throw new PermissionNotFoundError(`El permiso ${permissionName} que intenta modificar no existe`)
 
             Validator.required({ name, description })
             Validator.length({ name, description }, 2, 500)
-
-            const permissionFound = await PermissionService.findPermissionByName(name)
-            if (!permissionFound) throw new PermissionNotFoundError(`El permiso ${name} que intenta modificar no existe`)
 
             const permission = await PermissionService.updatePermissionById(permissionFound.id, { name, description, updatedAt: 'now()', updatedBy: request.user.name })
             
