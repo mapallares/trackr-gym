@@ -1,11 +1,23 @@
 {
-  "name": "inventory",
+  "name": "sequelize",
   "version": "1.0.0",
-  "author": "Binarium Team",
-  "license": "ISC",
-  "description": "",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch api.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@sequelize/postgres": "7.0.0-alpha.43",
+    "express": "4.21.1",
+    "morgan": "1.10.0",
+    "sequelize": "6.37.5"
+  },
+  "devDependencies": {
+    "nodemon": "3.1.7"
   }
 }
