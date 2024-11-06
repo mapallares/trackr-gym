@@ -1,51 +1,51 @@
 import {sequelize} from '../database/database.js'
-import { DataTypes } from 'sequelize' 
+import { DataTypes } from 'sequelize'
 
-export const CurrencyAmountUnitType = sequelize.define('CurrencyAmountUnitTypes', {
+export const PaymentsComments = sequelize.define('PaymentsComments', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
         allowNull: false,
         defaultValue: DataTypes.UUIDV4
     },
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-    abbreviation: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-    symbol: {
-        type: DataTypes.STRING,
+    paymentId: {
+        type: DataTypes.UUID,
         allowNull: false
     },
-    unit: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true
     },
-    status: {
+    date: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    commenter: {
         type: DataTypes.STRING,
         allowNull: false
     },
     isActive: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        allowNull: false,
+        defaultValue: true
     },
-    createdAt: {
+    isDeleted: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    },
+    createdAt:{
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         allowNull: false
     },
     createdBy: {
         type: DataTypes.STRING,
-        defaultValue: "System",
+        defaultValue:"System",
         allowNull: false
     },
     updatedAt: {
@@ -58,6 +58,3 @@ export const CurrencyAmountUnitType = sequelize.define('CurrencyAmountUnitTypes'
         allowNull: true
     }
 })
-
-
-
