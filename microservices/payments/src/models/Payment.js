@@ -1,6 +1,6 @@
 import {sequelize} from '../database/database.js'
 import { DataTypes } from 'sequelize' 
-import {PaymentsComments} from './PaymentComments.js'
+import {PaymentComments} from './PaymentComments.js'
 import { Invoice } from './Invoice.js'
 
 export const Payment = sequelize.define('Payments', {
@@ -82,7 +82,7 @@ Payment.hasMany(PaymentComments,{
     sourceKey: 'id'
 })
 
-PaymentsComments.belongsTo(Payment,{
+PaymentComments.belongsTo(Payment,{
     foreignKey: 'paymentId',
     targetId: 'id'
 })

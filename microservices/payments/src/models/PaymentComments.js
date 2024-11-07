@@ -1,7 +1,7 @@
 import {sequelize} from '../database/database.js'
 import { DataTypes } from 'sequelize'
 
-export const PaymentsComments = sequelize.define('PaymentsComments', {
+export const PaymentComments = sequelize.define('PaymentComments', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,

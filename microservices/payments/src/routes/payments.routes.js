@@ -6,7 +6,7 @@ router.get("/payments",getPayments)
 router.get("/payments/:id",getPayment)
 router.get("/payments/:id/invoices",getPaymentInvoices)
 router.post("/payments",createPayments)
-router.put("/payments/:id",updatePayment)
-router.delete("/payments/:id",deletePayment)
+router.put("/payments/:id",updatePayments)
+router.delete("/payments/:id",deletePayments)
 
 export default router

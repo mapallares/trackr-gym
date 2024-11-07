@@ -62,7 +62,7 @@ export const createPayments = async (req, res) =>{
     }
 }
 
-export const updatePayment = async (req, res) => {
+export const updatePayments = async (req, res) => {
     try{
         const {id} = req.params
         const payment = await Payment.findByPk(id)
@@ -74,12 +74,12 @@ export const updatePayment = async (req, res) => {
     }
 }
 
-export const deletePayment = async (req, res) => {
+export const deletePayments = async (req, res) => {
     try{
         const {id} = req.params
-        const payment = await Payment.findByPk(id)
-        await payment.destroy()
-        return res.status(204).send()
+        await Payment.destroy({
+            where: {id}
+        })
     } catch (error) {
         return res.status(500).json({message: error.message})
     }
