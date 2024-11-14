@@ -1,5 +1,6 @@
 import { Product } from '../models/Product.js';
 import { InvertoryMovement } from '../models/InventoryMovement.js'
+import { Detail } from '../models/Detail.js';
 
 export const getProducts = async (req, res) =>{
     try {
@@ -80,7 +81,7 @@ export const getProductMovements = async (req, res) => {
 export const getProductDetails = async (req, res) => {
     try {
         const {id} = req.params
-        const details = await Product.findAll({
+        const details = await Detail.findAll({
             where: { productId : id }
         })
         res.json(details);
