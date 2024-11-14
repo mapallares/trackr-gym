@@ -1,4 +1,6 @@
 import { Router } from 'express'
+import {getPaymentMethods,getPaymentMethod,createPaymentMethods,updatePaymentMethods,
+    deletePaymentMethods} from '../controllers/paymentMethods.controller.js'
 
 const router = Router()
 

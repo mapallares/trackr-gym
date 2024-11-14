@@ -1,4 +1,6 @@
 import { Router } from 'express'
+import {getPayments, getPayment, getPaymentInvoices, createPayments,
+    updatePayments,deletePayments} from '../controllers/payments.controller.js'
 
 const router = Router()
 

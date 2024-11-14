@@ -1,4 +1,6 @@
 import { Router } from 'express'
+import {getCurrencyAmountUnitTypes, getCurrencyAmountUnitType, createCurrencyAmountUnitTypes
+    , updateCurrencyAmountUnitTypes, deleteCurrencyAmountUnitTypes } from '../controllers/currencyAmountUnitType.controller.js'
 
 const router = Router()
 
