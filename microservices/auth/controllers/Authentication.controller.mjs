@@ -85,6 +85,7 @@ export class AuthenticationController extends Controller {
               name: user.name,
               username: user.username,
               email: user.email,
+              phone: user.phone,
               roles: roles.map(role => role.name),
               permissions: permissions.map(permission => permission.name),
             }, process.env.JWT_SECRET, { 

@@ -70,6 +70,16 @@ export class Branch extends Entity {
             name: 'updatedBy',
             type: 'string',
             nulleable: true
+        },
+        {
+            name: 'schedules',
+            type: 'array',
+            nulleable: true
+        },
+        {
+            name: 'plans',
+            type: 'array',
+            nulleable: true
         }
     ]
 

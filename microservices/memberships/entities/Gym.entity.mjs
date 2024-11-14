@@ -90,6 +90,26 @@ export class Gym extends Entity {
             name: 'updatedBy',
             type: 'string',
             nulleable: true
+        },
+        {
+            name: 'branches',
+            type: 'array',
+            nulleable: true
+        },
+        {
+            name: 'networks',
+            type: 'array',
+            nulleable: true
+        },
+        {
+            name: 'benefits',
+            type: 'array',
+            nulleable: true
+        },
+        {
+            name: 'plans',
+            type: 'array',
+            nulleable: true
         }
     ]
 

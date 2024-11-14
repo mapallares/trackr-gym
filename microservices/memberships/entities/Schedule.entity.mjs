@@ -98,24 +98,11 @@ export class Schedule extends Entity {
     static relations = {
         toMany: [
             {
-                table: 'SchedulesBenefits',
-                table: 'planId'
-            },
-            {
-                table: 'SchedulesBranches',
-                by: 'planId'
-            },
-            {
-                table: 'Memberships',
-                table: 'planId'
+                table: 'Branches',
+                table: 'scheduleId'
             }
         ],
-        toOne: [
-            {
-                table: 'Gyms',
-                by: 'gymId'
-            }
-        ]
+        toOne: []
     }
 
     get(columns = [], including = true) {

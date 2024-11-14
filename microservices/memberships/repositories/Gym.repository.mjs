@@ -1,14 +1,32 @@
-import Gym from '../entities/Gym.entity.mjs'
 import Repository from './repository/Repository.mjs'
+import Gym from '../entities/Gym.entity.mjs'
+import PlanRepository from './Plan.repository.mjs'
+import BranchRepository from './Branch.repository.mjs'
+import NetworkRepository from './Network.repository.mjs'
+import BenefitRepository from './Benefit.repository.mjs'
 
 export class GymRepository extends Repository {
 
     static async findAll() {
-        return await super.findAll(Gym)
+        let gyms = await super.findAll(Gym)
+        for(let i = 0; i < gyms.length; i++) {
+            const gym = gyms[i]
+            const branches = await BranchRepository.findAllByGymId(gym.id)
+            const networks = await NetworkRepository.findAllByGymId(gym.id)
+            const benefits = await BenefitRepository.findAllByGymId(gym.id)
+            const plans = await PlanRepository.findAllByGymId(gym.id)
+            gyms[i] = {...gym, branches, networks, benefits, plans }
+        }
+        return gyms
     }
 
     static async findById(id) {
-        return await super.findById(Gym, id)
+        const gym = await super.findById(Gym, id)
+        const branches = await BranchRepository.findAllByGymId(id)
+        const networks = await NetworkRepository.findAllByGymId(id)
+        const benefits = await BenefitRepository.findAllByGymId(gym.id)
+        const plans = await PlanRepository.findAllByGymId(id)
+        return {...gym, branches, networks, benefits, plans }
     }
 
     static async save(gym) {

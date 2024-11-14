@@ -92,6 +92,11 @@ export class Membership extends Entity {
             name: 'updatedBy',
             type: 'string',
             nulleable: true
+        },
+        {
+            name: 'users',
+            type: 'array',
+            nulleable: true
         }
     ]
 

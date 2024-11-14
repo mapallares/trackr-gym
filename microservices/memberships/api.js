@@ -28,7 +28,7 @@ app.use((request, response, next) => {
 })
 
 const VERSIONING = '/api/v1/memberships'
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3002
 
 app.use(VERSIONING, membershipsRouter)
 app.use(VERSIONING, gymsRouter)

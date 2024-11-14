@@ -5,6 +5,7 @@ import { TokenRequiredError } from '../errors/error/TokenRequired.error.mjs'
 import { UnauthorizedError } from '../errors/error/Unauthorized.error.mjs'
 import RoleService from '../services/Role.service.mjs'
 import PermissionService from '../services/Permission.service.mjs'
+import UserService from '../services/User.service.mjs'
 
 export class MiddlewareController extends Controller {
 
@@ -20,6 +21,8 @@ export class MiddlewareController extends Controller {
               request.user = decoded
               const roles = await RoleService.findAllRolesByUserId(decoded.userId)
               const permissions = await PermissionService.findAllPermissionsByUserId(decoded.userId)
+              const user = await UserService.findUserById(request.user.userId)
+              request.user.account = user
               request.user.roles = roles.map(role => role.name)
               request.user.permissions = permissions.map(permission => permission.name)
               next()

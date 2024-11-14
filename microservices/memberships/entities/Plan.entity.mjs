@@ -82,6 +82,11 @@ export class Plan extends Entity {
             name: 'updatedBy',
             type: 'string',
             nulleable: true
+        },
+        {
+            name: 'benefits',
+            type: 'array',
+            nulleable: true
         }
     ]
 

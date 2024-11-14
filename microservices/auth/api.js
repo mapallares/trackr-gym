@@ -27,7 +27,7 @@ app.use((request, response, next) => {
 })
 
 const VERSIONING = '/api/v1/auth'
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 app.use(VERSIONING, router)
 app.use(VERSIONING, authenticationRouter)
@@ -35,8 +35,6 @@ app.use(VERSIONING, authorizationRouter)
 app.use(VERSIONING, usersRouter)
 app.use(VERSIONING, rolesRouter)
 app.use(VERSIONING, permissionsRouter)
-
-
 
 app.listen(PORT, () => {
   console.log(`TrackrGym Auth Microservice running on http://localhost:${PORT + VERSIONING}`)
