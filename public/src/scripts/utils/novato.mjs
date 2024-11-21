@@ -33,6 +33,13 @@ export function valueOfJSONText(jsonText, value) {
     return v;
 }
 
+export function YYYYMMDD(fecha = new Date()) {
+    const año = fecha.getFullYear();
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses empiezan en 0
+    const dia = String(fecha.getDate()).padStart(2, '0');
+    return `${año}-${mes}-${dia}`;
+}
+
 //Filter Rendered Elements
 
 export function filterRenderedElements(filter, container, selector) {

@@ -10,6 +10,9 @@ import AccountLayout from '../layouts/Account.layout.mjs'
 
 var session = null;
 
+localStorage.setItem('serviceId', '17d2151b-6f6b-4641-a169-eec60f0e8a1e')
+localStorage.setItem('activityId', 'd174cd1c-813f-4766-9662-761c8ca965c3')
+
 document.addEventListener('DOMContentLoaded', () => {
     Auth.session(async (user) => {
         if (user) {

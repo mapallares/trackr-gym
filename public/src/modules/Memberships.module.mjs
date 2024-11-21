@@ -3,6 +3,28 @@ import Notify from '../scripts/utils/notify.mjs'
 
 export class Memberships {
 
+    static async new(planId, membership) {
+        const token = localStorage.getItem('token') || ""
+        const response = await fetch(API.MEMBERSHIPS.ENDPOINTS.NEW + `/${planId}`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            },
+            redirect: 'follow',
+            body: JSON.stringify(membership)
+        })
+        const content = await response.json()
+        if (response.ok) {
+            return content
+        }
+        else {
+            Notify.notice(content.message, 'error')
+            return false
+        }
+    }
+
     static async gyms() {
         const token = localStorage.getItem('token') || ""
         const response = await fetch(API.MEMBERSHIPS.ENDPOINTS.GYMS, {

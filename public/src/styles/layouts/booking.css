@@ -59,6 +59,7 @@
 }
 
 .tg-layout-booking-bookings {
+    overflow: hidden;
     width: 100%;
     height: 100%;
 }
@@ -121,8 +122,10 @@
     height: 200px;
     min-width: 200px;
     min-height: 200px;
+    max-width: 200px;
     transition: all 0.3s ease;
     position: relative;
+    z-index: 1;
 }
 
 .tg-layout-booking-calendar-day:hover {
@@ -172,6 +175,7 @@
     top: 10px;
     left: 10px;
     font-size: 20px;
+    z-index: -1;
     color: var(--tg-color-text-softest);
 }
 
@@ -189,3 +193,118 @@
     text-align: center;
     margin: 0 0 10px 0;
 }
+
+/* Contenedor principal */
+.tg-layout-schedule-event {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Fecha del evento */
+  .tg-layout-schedule-date {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  /* Horarios del evento */
+  .tg-layout-schedule-time {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  /* Razón del evento */
+  .tg-layout-schedule-reason {
+    font-size: 1em;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  
+  /* Estado del evento */
+  .tg-layout-schedule-status {
+    font-weight: bold;
+    font-size: 1em;
+  }
+  
+  /* Estado pendiente */
+  .tg-layout-schedule-event.pending .tg-layout-schedule-status {
+    color: #ffa500;
+  }
+  
+  /* Estado aprobado */
+  .tg-layout-schedule-event.approved .tg-layout-schedule-status {
+    color: #4caf50;
+  }
+  
+  /* Estado cancelado */
+  .tg-layout-schedule-event.cancelled .tg-layout-schedule-status {
+    color: #f44336;
+    text-decoration: line-through;
+  }
+
+
+  /* Contenedor principal */
+.tg-layout-request-admin {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Información de la solicitud */
+  .tg-layout-request-info p {
+    margin: 4px 0;
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  /* Contenedor de acciones */
+  .tg-layout-request-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  
+  /* Botón de aprobar */
+  .tg-btn-approve {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .tg-btn-approve:hover {
+    background-color: #45a049;
+  }
+  
+  /* Botón de rechazar */
+  .tg-btn-reject {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .tg-btn-reject:hover {
+    background-color: #e53935;
+  }
+  

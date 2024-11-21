@@ -139,3 +139,12 @@
     gap: 10px;
     margin: 10px 0 0 0;
 }
+
+.tg-layout-added-benefit {
+    border-radius: 100px;
+    transition: all 0.3s ease;
+}
+
+.tg-layout-added-benefit:hover {
+    background: rgba(255, 0, 0, 0.1);
+}

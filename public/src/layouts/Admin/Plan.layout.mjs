@@ -219,7 +219,7 @@ function planCard(plan) {
 
 function planBenefitItem(benefit) {
     return `
-    <div class="tg-layout-memberships-plan-benefit tg-layout-memberships-plan-benefit-${benefit.isApplicable}" id="addedBenefit_${benefit.id}">
+    <div class="tg-layout-memberships-plan-benefit tg-layout-added-benefit tg-layout-memberships-plan-benefit-${benefit.isApplicable}" id="addedBenefit_${benefit.id}">
         <span class="material-symbols-outlined">${benefit.isApplicable ? 'check_circle' : 'cancel'}</span>
         <p>${benefit.name}</p>
     </div>

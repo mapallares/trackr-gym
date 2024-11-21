@@ -4,6 +4,7 @@ import Memberships from '../../modules/Memberships.module.mjs'
 import { UDC } from '../../scripts/utils/novato.mjs'
 import MembershipPayment from './TakeMembership.layout.mjs'
 import { GymSelector } from '../components/contextables/GymSelector.modaler.contextable.mjs'
+import Table from '../components/Table.component.mjs'
 
 class MembershipLayout extends Layout {
 
@@ -31,7 +32,7 @@ class MembershipLayout extends Layout {
             <div class="tg-layout-membership-header-gymselector-btn" id="gymSelectorBtn">
                 <img src="https://firebasestorage.googleapis.com/v0/b/authentication-app-e625b.appspot.com/o/imagenes%2F${gym.id}.jpg?alt=media">
             </div>
-            <h3>${memberships.length === 0 ? 'Sin membresía activa' : 'Membresía Activa'}</h3>
+            <h3>${memberships.length === 0 ? '<span style="color: var(--tg-color-danger)">Sin membresía activa</span>' : 'Membresía Activa'}</h3>
         </header>
         <div class="tg-layout-membership-banner">
             <h4>${gym.name}<h4>
@@ -48,6 +49,15 @@ class MembershipLayout extends Layout {
             ${plans.length > 0 ? plans.map(plan => planCard(plan)).join('') : '<div class="tg-layout-membership-plans-empty">No hay planes disponibles</div>'}
             </div>
         </div>
+        ${(memberships.length > 0) && `
+        <br>
+        <h1 class="tg-layout-memberships-title">Mis membresías</h1>
+        <div class="tg-layout-content-padding">
+        </div>
+        <div class="tg-layout-memberships-tables" style="width: 100%; overflow: auto;">
+            ${Table(memberships, 'memberships', )}
+        </div>
+            `}
         `
 
         plans.forEach(plan => {

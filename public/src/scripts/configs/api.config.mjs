@@ -27,13 +27,17 @@ export const API = {
         NEW: 'new',
         BENEFITS: 'benefits'
     }),
-    BOOKINGS: new EndpointGroup('https://trackr-gym-bookings.onrender.com', {
-        ALL: 'bookings'
+    BOOKINGS: new EndpointGroup('https://trackr-gym-bookings-production.onrender.com/api/v1/bookings', {
+        ALL: 'bookings',
+        SERVICES: 'services',
+        ACTIVITIES: 'activities'
     }),
-    INVENTORY: new EndpointGroup('https://trackr-gym-inventory-testing.onrender.com', {
+    INVENTORY: new EndpointGroup('https://trackr-gym-inventory-production.onrender.com/api/v1/inventory', {
         PRODUCTS: 'products'
     }),
-    PAYMENTS: null
+    PAYMENTS: new EndpointGroup('https://trackr-gym-payments-production.onrender.com/api/v1/payments', {
+        ALL: 'payments'
+    }),
 }
 
 export default API

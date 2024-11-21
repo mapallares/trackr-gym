@@ -7,6 +7,7 @@ import Table from '../components/Table.component.mjs';
 import { GymSelector } from '../components/contextables/GymSelector.modaler.contextable.mjs';
 import GymHeader from '../components/injectables/GymHeader.injectable.mjs';
 import Memberships from '../../modules/Memberships.module.mjs';
+import ProductLayout from './Product.layout.mjs';
 
 
 class InventoryLayout extends Layout {
@@ -60,6 +61,13 @@ class InventoryLayout extends Layout {
             </div>
         </div>
         `
+
+        products.forEach(product => {
+            $(`productsTable_${product.id}`, content).addEventListener('click', () => {
+                localStorage.setItem('productId', product.id)
+                super.render(user, ProductLayout, this)
+            })
+        })
 
         $('inventoryBtn', content).whenClick(() => {
             super.popup(`

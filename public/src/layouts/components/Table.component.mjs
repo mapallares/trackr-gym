@@ -28,11 +28,11 @@ function Table(dataObjets, id = 'table', attrs = [], include = false, translate 
         .join("");
 
     const filasHTML = data
-        .map(row => {
+        .map((row, index) => {
             const celdasHTML = headers
                 .map(header => `<td>${row[header] ?? ''}</td>`)
                 .join("");
-            return `<tr class="tg-layout-table-row">${celdasHTML}</tr>`;
+            return `<tr class="tg-layout-table-row" id="${id}_${dataObjets[index].id}">${celdasHTML}</tr>`;
         })
         .join("");
 
