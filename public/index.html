@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackrGym</title>
+    <link rel="stylesheet" href="src/styles/app.css">
+    <link rel="icon" href="./src/assets/logos/ex_logo_favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script type="module" src="src/components/components.mjs"></script>
+    <script type="module" src="src/scripts/app.js"></script>
+</head>
+<body>
+    
+    <tg-loader id="loader"></tg-loader>
+
+    <div class="tg-modal" id="modal">
+        <div class="tg-modal-content" id="modalContent"></div>
+    </div>
+
+    <main class="tg-main">
+
+        <nav class="tg-nav" id="nav">
+            <div class="tg-nav-brand">
+                <div class="tg-nav-brand-icon">
+                    <img src="src/assets/logos/ex_logo.svg" alt="">
+                </div>
+                <div class="tg-nav-brand-name">
+                    Trackr<span class="tg-nav-brand-name-light">Gym</span>
+                </div>
+            </div>
+            <div class="tg-nav-session">
+        
+                <div class="tg-nav-session-user">
+                    <div class="tg-nav-session-user-photo" id="userSessionPhoto"></div>
+                    <div class="tg-nav-session-user-info">
+                        <div class="tg-nav-session-user-info-flex">
+                            <div class="tg-nav-session-user-name" id="userSessionName"></div>
+                            <div class="tg-nav-session-user-role" id="userSessionRole">Cliente</div>
+                        </div>
+                        <tg-button icon="true" variant="plain" size="xs" id="userSessionLayout" class="tg-nav-session-user-btn">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </tg-button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tg-nav-items" id="navItems"></div>
+            <div class="tg-nav-footer">
+                <tg-button width="full" variant="plain" color="danger" size="xs" id="logoutBtn">
+                    <div class="tg-nav-btn">
+                        <div class="tg-nav-btn-icon"><span class="material-symbols-outlined">power_settings_new</span></div>
+                    </div>
+                </tg-button>
+                <tg-button width="full" variant="plain" size="xs" id="navToggle">
+                    <div class="tg-nav-btn">
+                        <div class="tg-nav-btn-icon"><span class="material-symbols-outlined">dock_to_right</span></div>
+                        <div class="tg-nav-btn-text"></div>
+                    </div>
+                </tg-button>
+            </div>
+
+        </nav>
+
+        <div class="tg-container" id="container">
+
+            <header class="tg-header" id="header">
+
+                <div class="tg-header-path">
+                    <div class="tg-header-path-controllers">
+                        <tg-button icon="true" radius="full" variant="plain" color="black" size="s" id="layoutBack">
+                            <span class="material-symbols-outlined">arrow_back</span>
+                        </tg-button>
+                    </div>
+                    <h2 class="tg-header-path-name" id="layoutName"></h2>
+                </div>
+
+            </header>
+
+            <div class="tg-content" id="content">
+
+            </div>
+
+            <tg-loader color="white" scope="local" id="contentLoader" disabled></tg-loader>
+            
+        </div>
+
+    </main>
+    
+    <script src="https://kit.fontawesome.com/4652fc03cf.js" crossorigin="anonymous"></script>
+</body>
+</html>

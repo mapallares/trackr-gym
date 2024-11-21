@@ -1,0 +1,170 @@
+@import url('global.css');
+
+body {
+    background-color: #ededed;
+    /* background: url('https://mercadofitness.com/wp-content/uploads/2023/02/El-gimnasio-CARD-cumple-tres-meses-en-Ciudad-de-la-Costa-Uruguay.jpeg'); */
+    background-size: cover;
+    background: linear-gradient(#202020, #101010);
+}
+
+.tg-main {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.tg-main-card-scene {
+    width: 100%;
+    max-width: 930px;
+    height: 100%;
+    max-height: 90vh;
+    perspective: 100vw;
+}
+
+.tg-main-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 1s ease;
+    transform-style: preserve-3d;
+    perspective-origin: center;
+}
+
+.tg-main-card-fliped {
+    transform: rotateY(180deg);
+}
+
+.tg-main-card-section {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    overflow: auto;
+}
+
+.tg-main-card-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background-color: var(--tg-color-background);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.tg-main-card-register {
+    transform: rotateY(180deg);
+}
+
+.tg-main-card-form {
+    width: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 30px 50px;
+    display: grid;
+    place-items: center;
+    max-width: 450px;
+    min-width: 450px;
+}
+
+.tg-main-card-ad {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    user-select: none;
+}
+
+.tg-ad {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:  linear-gradient(90deg, #444444 0.05rem, transparent 0.05rem),
+    linear-gradient(180deg, #444444 0.05rem, transparent 0.05rem),
+    #1d1d1d;
+    background-size: 5vw 5vw, 5vw 5vw;
+    background-position: 0 0, 0 0;
+}
+
+.tg-ad-name {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.tg-ad-qr {
+    width: 15vw;
+    height: 15vw;
+    background-color: #fff;
+    border-radius: 12px;
+    margin: 30px 0;
+    padding: 10px;
+
+    img {
+        width: 100%;
+        pointer-events: none;
+    }
+}
+
+.tg-ad-info {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+h2 b {
+    font-weight: 800;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        background: #fff;
+    }
+    
+    .tg-main {
+        padding: 0;
+    }
+
+    .tg-main-card-form {
+        min-width: auto;
+    }
+
+    .tg-main-card-section-add {
+        display: none;
+    }
+
+    .tg-main-card-scene {
+        border-radius: 0;
+        max-width: 470px;
+        max-height: 100vh;
+    }
+
+    .tg-main-card-content {
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,232 @@
+.tg-layout-search-content {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    user-select: none;
+}
+
+.tg-layout-search-header {
+    width: 100%;
+    border: 0.01rem solid var(--tg-color-border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.tg-layout-search-header-gym {
+    width: 100%;
+    padding: 20px;
+}
+
+.tg-layout-search-header-gym-logo {
+    width: 150px;
+    transition: all 0.3s ease;
+}
+
+.tg-layout-search-header-gym-logo img {
+    width: 100%;
+}
+
+.tg-layout-search-header-gym-logo:hover {
+    opacity: 0.8;
+    transform: scale(0.95);
+    cursor: pointer;
+}
+
+.tg-layout-search-header-branches {
+    width: 100%;
+    max-width: 340px;
+    height: 100%;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    padding: 20px;
+    background: #f6f7fc;
+}
+
+.tg-layout-search-header-branches h3 {
+    letter-spacing: -0.5pt;
+    color: var(--tg-color-text-softer);
+}
+
+.tg-layout-search-header-branches-empty {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    color: var(--tg-color-text-softer);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.tg-layout-search-header-branch {
+    width: 100%;
+    border: 0.01rem solid var(--tg-color-border);
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.tg-layout-search-header-branch-details {
+    width: 100%;
+}
+
+.tg-layout-search-header-gym-details-nit {
+    color: var(--tg-color-text-softest);
+}
+
+.tg-layout-search-header-gym-details-foundedin {
+    color: var(--tg-color-text-soft);
+}
+
+.tg-layount-search-header-gym-details-icons {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.tg-layount-search-header-gym-details-icons span {
+    font-size: 20px;
+}
+
+.tg-layout-search-header-gym-details-adress, 
+.tg-layout-search-header-gym-details-email,
+.tg-layout-search-header-gym-details-phone{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tg-layout-search-header-branch-info {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.tg-layout-search-header-branch-info-index {
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    background: black;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+}
+
+.tg-layout-search-header-branch-location {
+    width: 100%;
+    border-top: 0.01rem solid var(--tg-color-border);
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--tg-color-text-softest);
+}
+
+.tg-layout-search-header-branch-location span {
+    font-size: 20px;
+}
+
+.tg-layout-search-header-branch-location p {
+    width: 100%;
+    font-size: 14px;
+}
+
+.tg-layout-search-inventory {
+    width: 100%;
+    border: 0.01rem solid var(--tg-color-border);
+    border-radius: 16px;
+}
+
+.tg-layout-search-header-gym-networks {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tg-layout-search-header-gym-network {
+    text-decoration: none;
+    color: var(--tg-color-text-softer);
+    font-size: 22px;
+}
+
+.tg-layout-search-header-gym-networks-empty {
+    font-size: 12px;
+    color: var(--tg-color-text-softer);
+}
+
+.tg-layout-search-inventory-filters {
+    width: 100%;
+    padding: 20px;
+}
+
+.tg-layout-search-inventory-filter-input {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.tg-layout-search-inventory-filter-input input {
+    outline: none;
+    border: none;
+    background: none;
+    width: 100%;
+    padding: 10px 0;
+    color: var(--tg-color-text-softer);
+}
+
+.tg-layout-search-inventory-filter-input span {
+    color: var(--tg-color-text-softer);
+    font-size: 20px;
+}
+
+.tg-layout-search-inventory-items {
+    width: 100%;
+    overflow: auto;
+}
+
+.tg-layout-search-inventory-filters-selector {
+    width: 100%;
+    padding: 20px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tg-layout-search-inventory-filters-selectors {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}

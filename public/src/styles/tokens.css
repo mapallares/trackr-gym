@@ -1,0 +1,236 @@
+:root,
+:root[data-theme="nl-light"] {
+    color-scheme: light;
+    --tg-color-background: #ffffff;
+    --gradient: linear-gradient(to right, #6988f6, #3ab4f2);
+    --color-primary: #0067f4;
+    --color-secondary: #3488ff;
+    --color-danger: #d24023;
+    --bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1016%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(0%2c 0%2c 0%2c 0)'%3e%3c/rect%3e%3cuse xlink:href='%23SvgjsSymbol1023' x='0' y='0'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsSymbol1023' x='720' y='0'%3e%3c/use%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1016'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cpath d='M-1 0 a1 1 0 1 0 2 0 a1 1 0 1 0 -2 0z' id='SvgjsPath1021'%3e%3c/path%3e%3cpath d='M-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0z' id='SvgjsPath1020'%3e%3c/path%3e%3cpath d='M-5 0 a5 5 0 1 0 10 0 a5 5 0 1 0 -10 0z' id='SvgjsPath1017'%3e%3c/path%3e%3cpath d='M2 -2 L-2 2z' id='SvgjsPath1018'%3e%3c/path%3e%3cpath d='M6 -6 L-6 6z' id='SvgjsPath1019'%3e%3c/path%3e%3cpath d='M30 -30 L-30 30z' id='SvgjsPath1022'%3e%3c/path%3e%3c/defs%3e%3csymbol id='SvgjsSymbol1023'%3e%3cuse xlink:href='%23SvgjsPath1017' x='30' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='30' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='30' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='30' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='30' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='30' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='30' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='30' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='30' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='30' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='90' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='90' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='90' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='90' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='90' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='90' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='90' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='90' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='90' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='90' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='150' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='150' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='150' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='150' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='150' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='150' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='150' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='150' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1022' x='150' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)' stroke-width='3'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='150' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='210' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='210' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1022' x='210' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)' stroke-width='3'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='210' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='210' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='210' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='210' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='210' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='210' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='210' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='270' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='270' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='270' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='270' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='270' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='270' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='270' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='270' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='270' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='270' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='330' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1022' x='330' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)' stroke-width='3'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='330' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='330' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='330' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='330' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='330' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='330' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='330' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='330' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='390' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='390' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='390' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='390' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='390' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='390' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='390' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='390' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='390' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='390' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='450' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='450' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='450' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='450' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='450' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='450' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='450' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='450' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='450' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='450' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='510' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='510' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='510' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='510' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='510' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='510' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1022' x='510' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)' stroke-width='3'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='510' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='510' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='510' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='570' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='570' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='570' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='570' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='570' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='570' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='570' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='570' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='570' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='570' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='630' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1022' x='630' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)' stroke-width='3'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='630' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='630' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='630' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='630' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='630' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1020' x='630' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='630' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='630' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1018' x='690' y='30' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='690' y='90' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='690' y='150' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='690' y='210' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='690' y='270' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1021' x='690' y='330' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='690' y='390' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1019' x='690' y='450' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1022' x='690' y='510' stroke='rgba(255%2c 255%2c 255%2c 0.25)' stroke-width='3'%3e%3c/use%3e%3cuse xlink:href='%23SvgjsPath1017' x='690' y='570' stroke='rgba(255%2c 255%2c 255%2c 0.25)'%3e%3c/use%3e%3c/symbol%3e%3c/svg%3e");
+    --tg-color-accent:  #00eb91;
+    --tg-color-accent-dark: #008653;
+    --tg-color-accent-light: #F6F7FC;
+    --tg-color-accent-hovered: #00c97c;
+    --tg-color-accent-active: #6f8aff;
+    --tg-color-accent-disabled: #e6e6e6;
+    --tg-color-accent-loading: #a283f0;
+    --tg-color-accent-soft: #c7ffef;
+    --tg-color-accent-soft-hovered: #e1d5ff;
+    --tg-color-accent-soft-loading: #d0beff;
+    --tg-color-text-on-accent: rgb(255, 255, 255);
+    --tg-color-text-on-accent-disabled: rgb(178, 186, 191);
+
+    --tg-color-black: #111111;
+    --tg-color-black-hovered: #333333;
+    --tg-color-black-disabled: var(--tg-color-accent-disabled);
+    --tg-color-black-loading: #222222;
+    --tg-color-black-soft: rgb(220, 220, 220);
+    --tg-color-black-soft-hovered: rgb(201, 201, 201);
+    --tg-color-black-soft-loading: rgb(118, 118, 118);
+    --tg-color-text-on-black: rgb(255, 255, 255);
+    --tg-color-text-on-black-disabled: var(--tg-color-text-on-accent-disabled);
+
+    --tg-color-white: #ffffff;
+    --tg-color-white-hovered: #dddddd;
+    --tg-color-white-disabled: var(--tg-color-accent-disabled);
+    --tg-color-white-loading: #d5d5d5;
+    --tg-color-white-soft: rgb(220, 220, 220);
+    --tg-color-white-soft-hovered: rgb(201, 201, 201);
+    --tg-color-white-soft-loading: rgb(118, 118, 118);
+    --tg-color-text-on-white: #111111;
+    --tg-color-text-on-white-disabled: #333333;
+
+    --tg-color-success: #3bcd21;
+    --tg-color-success-hovered: rgb(0, 224, 123);
+    --tg-color-success-disabled: var(--tg-color-accent-disabled);
+    /*rgb(255, 255, 227)*/
+    --tg-color-success-loading: rgb(0, 182, 100);
+    --tg-color-success-soft: rgb(218, 255, 238);
+    --tg-color-success-soft-hovered: rgb(190, 255, 225);
+    --tg-color-success-soft-loading: rgb(79, 255, 173);
+    --tg-color-text-on-success: #ffffff;
+    --tg-color-text-on-success-disabled: var(--tg-color-text-on-accent-disabled);
+    /*rgb(150, 150, 0)*/
+
+    --tg-color-warning: rgb(210, 193, 35);
+    --tg-color-warning-hovered: rgb(239, 227, 91);
+    --tg-color-warning-disabled: var(--tg-color-accent-disabled);
+    --tg-color-warning-loading: rgb(178, 168, 21);
+    --tg-color-warning-soft: rgb(255, 253, 209);
+    --tg-color-warning-soft-hovered: rgb(255, 250, 193);
+    --tg-color-warning-soft-loading: rgb(255, 247, 137);
+    --tg-color-text-on-warning: rgb(255, 255, 255);
+    --tg-color-text-on-warning-disabled: var(--tg-color-text-on-accent-disabled);
+
+    --tg-color-danger: rgb(210, 64, 35);
+    --tg-color-danger-hovered: rgb(239, 115, 91);
+    --tg-color-danger-disabled: var(--tg-color-accent-disabled);
+    --tg-color-danger-loading: rgb(178, 48, 21);
+    --tg-color-danger-soft: rgb(255, 217, 209);
+    --tg-color-danger-soft-hovered: rgb(255, 203, 193);
+    --tg-color-danger-soft-loading: rgb(255, 157, 137);
+    --tg-color-text-on-danger: rgb(255, 255, 255);
+    --tg-color-text-on-danger-disabled: var(--tg-color-text-on-accent-disabled);
+
+    --tg-width-fit: fit-content;
+    --tg-width-full: "100%";
+
+    --tg-border-radius-auto-xs: 8px;
+    --tg-border-radius-auto-s: 10px;
+    --tg-border-radius-auto-m: 10px;
+    --tg-border-radius-auto-l: 12px;
+    --tg-border-radius-auto-xl: 12px;
+
+    --tg-color-dimed-accent: #5271FF20;
+    --tg-color-dimed-black: #00000020;
+    --tg-color-dimed-white: #ffffff20;
+    --tg-color-dimed-gray: #d8dee420;
+    --tg-color-dimed-success: #3bcd2120;
+    --tg-color-dimed-warning: #d2c12320;
+    --tg-color-dimed-danger: #d2402320;
+
+    --tg-color-content: #fff;
+    --tg-color-on-content: #eee;
+
+    --tg-color-text: rgb(58, 56, 72);
+    --tg-color-text-soft: rgb(54, 67, 74);
+    --tg-color-text-softer: rgb(102, 118, 128);
+    --tg-color-text-softest: rgb(178, 186, 191);
+
+    --tg-border: 0.1rem;
+    --tg-border-hovered: 0.15rem;
+
+    --tg-border-radius-xxs: 8px;
+    --tg-border-radius-xs: 10px;
+    --tg-border-radius-s: 12px;
+    --tg-border-radius-m: 16px;
+    --tg-border-radius-l: 24px;
+    --tg-border-radius-xl: 36px;
+    --tg-border-radius-xxl: 72px;
+    --tg-border-radius-full: 1000px;
+    --tg-border-radius-circle: 50%;
+
+    --tg-padding-xxs: 5px;
+    --tg-padding-xs: 10px;
+    --tg-padding-s: 20px;
+    --tg-padding-m: 30px;
+    --tg-padding-l: 40px;
+    --tg-padding-xl: 50px;
+    --tg-padding-xxl: 60px;
+    --tg-padding-xxxl: 70px;
+
+    --tg-space-xxl: 72px;
+    --tg-space-xl: 36px;
+    --tg-space-l: 24px;
+    --tg-space-m: 16px;
+    --tg-space-s: 8px;
+    --tg-space-xs: 4px;
+
+    --tg-font-size-xxxl: 2.25rem;
+    --tg-font-size-xxl: 1.5rem;
+    --tg-font-size-xl: 1.25rem;
+    --tg-font-size-l: 0.9rem;
+    --tg-font-size-m: 0.875rem;
+    --tg-font-size-s: 0.75rem;
+    --tg-font-size-xs: 0.6875rem;
+
+    --tg-font-family: 'DM Sans', 'Poppins', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+    --tg-font-weight: 400;
+    --tg-font-weight-active: 500;
+    --tg-font-weight-heading: 600;
+    --tg-font-weight-strong: 670;
+
+    --tg-transition: all 0.3s ease;
+    --tg-transition-quickly: 0.05s ease;
+    --tg-transition-slowly: all 2s ease;
+
+    --tg-line-height-tight: 1.15;
+    --tg-line-height-heading: 1.2;
+    --tg-line-height-caption: 1.3;
+    --tg-line-height: 1.5;
+    --tg-line-height-form: 20px;
+
+    --tg-indtg-deep: -999999;
+    --tg-indtg-default: 1;
+    --tg-indtg-masked: 100;
+    --tg-indtg-mask: 200;
+    --tg-indtg-sticky: 300;
+    --tg-indtg-nav: 400;
+    --tg-indtg-top-bar: 500;
+    --tg-indtg-overlay: 600;
+    --tg-indtg-spinner: 700;
+    --tg-indtg-popout: 800;
+    --tg-indtg-toast: 900;
+    --tg-indtg-modal: 1000;
+
+    --tg-height-xs: 30px;
+    --tg-height-s: 40px;
+    --tg-height-m: 45px;
+    --tg-height-l: 60px;
+    --tg-height-xl: 70px;
+
+    --tg-color-text-error: rgb(210, 64, 35);
+    --tg-color-text-danger: rgb(178, 48, 21);
+    --tg-color-text-success: rgb(17, 118, 39);
+    --tg-color-text-neutral: rgb(85, 89, 93);
+    --tg-color-text-neutral-strong: rgb(17, 24, 28);
+    --tg-color-text-warning: rgb(148, 105, 0);
+    --tg-color-text-warning-strong: rgb(51, 40, 16);
+    --tg-color-text-highlight: rgb(121, 58, 175);
+    --tg-color-text-info: rgb(52, 81, 178);
+    --tg-color-text-progress: rgb(1, 109, 131);
+    --tg-color-border: rgb(216, 222, 228);
+    --tg-color-border-strong: rgb(188, 197, 204);
+    --tg-color-border-neutral: rgb(215, 220, 224);
+    --tg-color-border-warning: rgb(248, 216, 124);
+    --tg-color-border-highlight: rgb(227, 204, 244);
+    --tg-color-border-danger: rgb(250, 199, 190);
+    --tg-color-border-success: rgb(183, 223, 186);
+    --tg-color-border-info: rgb(198, 212, 249);
+    --tg-color-border-progress: rgb(176, 229, 238);
+    --tg-color-surface: rgb(255, 255, 255);
+    --tg-color-surface-raised: rgb(250, 251, 251);
+    --tg-color-surface-lowered: rgb(230, 232, 235);
+    --tg-color-overlay: rgba(144, 152, 152, 0.4);
+    --tg-color-status-neutral: rgb(255, 255, 255);
+    --tg-color-status-warning: rgb(246, 205, 90);
+    --tg-color-status-highlight: rgb(142, 78, 198);
+    --tg-color-status-danger: rgb(210, 64, 35);
+    --tg-color-status-success: rgb(29, 134, 51);
+    --tg-color-status-info: rgb(62, 99, 221);
+    --tg-color-status-progress: rgb(0, 127, 153);
+    --tg-color-status-notification: rgb(231, 84, 54);
+    --tg-color-status-neutral-soft: rgb(241, 243, 245);
+    --tg-color-status-warning-soft: rgb(255, 250, 225);
+    --tg-color-status-highlight-soft: rgb(249, 241, 254);
+    --tg-color-status-danger-soft: rgb(255, 240, 238);
+    --tg-color-status-success-soft: rgb(235, 249, 235);
+    --tg-color-status-info-soft: rgb(240, 244, 255);
+    --tg-color-status-progress-soft: rgb(231, 249, 251);
+    --tg-color-button: rgb(255, 255, 255);
+    --tg-color-button-hover: rgb(246, 248, 248);
+    --tg-color-border-hovered: rgb(102, 118, 128);
+    --tg-color-icon: rgb(102, 118, 128);
+    --tg-color-icon-hover: rgb(12, 26, 61);
+    --tg-color-active: rgb(246, 248, 248);
+    --tg-color-header: rgb(246, 248, 248);
+    --tg-color-accent-secondary: rgb(53, 89, 199);
+    --tg-box-shadow: 0 1px 3px rgba(12, 12, 12, 0.09);
+    --tg-box-shadow-header: 0 1px 5px rgba(12, 12, 12, 0.05);
+    --tg-box-shadow-card: 0 0 0 1px var(--tg-color-border), 0 1px 5px rgba(12, 12, 12, 0.05), 0 0 40px rgba(12, 12, 12, 0.015);
+    --tg-box-shadow-nav: 0 0 0 1px var(--tg-color-border), 0 5px 17px rgba(12, 12, 12, 0.14);
+    --tg-box-shadow-popout: 0 4px 12px rgba(12, 12, 12, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    --tg-box-shadow-modal: 0 24px 38px 3px rgba(12, 12, 12, 0.16), 0 9px 86px 8px rgba(12, 12, 12, 0.1), 0 11px 15px -7px rgba(12, 12, 12, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    --tg-box-shadow-dark: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --tg-box-shadow-header-dark: 0 1px 5px rgba(0, 0, 0, 0.15);
+    --tg-box-shadow-card-dark: 0 0 0 1px var(--tg-color-border), 0 1px 5px rgba(0, 0, 0, 0.15);
+    --tg-box-shadow-nav-dark: 0 0 0 1px var(--tg-color-border), 0 5px 17px rgba(0, 0, 0, 0.24);
+    --tg-box-shadow-popout-dark: 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--tg-color-border);
+    --tg-box-shadow-modal-dark: 0 0 0 1px var(--tg-color-border), 0 24px 38px 3px rgba(0, 0, 0, 0.34), 0px 9px 86px 8px rgba(0, 0, 0, 0.28), 0px 11px 15px -7px rgba(0, 0, 0, 0.28);
+
+}
+
+:root[data-theme="nl-dark"] {
+    color-scheme: dark;
+}

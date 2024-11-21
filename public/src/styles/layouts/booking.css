@@ -1,0 +1,191 @@
+.tg-layout-booking-content {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tg-layout-booking-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tg-layout-booking-header-gymselector-btn {
+    width: 100%;
+    max-width: 100px;
+    height: 60px;
+    max-height: 60px;
+    border: 0.05rem solid var(--tg-color-border);
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.tg-layout-booking-header-gymselector-btn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    transform: scale(0.95);
+}
+
+.tg-layout-booking-header-gymselector-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tg-layout-booking-header-gym {
+    width: 100%;
+    color: var(--tg-color-text-softer);
+    text-align: center;
+    letter-spacing: -1pt;
+}
+
+.tg-layout-booking-header-date {
+    white-space: nowrap;
+    color: var(--tg-color-accent-dark);
+}
+
+.tg-layout-booking-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.tg-layout-booking-bookings {
+    width: 100%;
+    height: 100%;
+}
+
+.tg-layout-booking-calendar {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+.tg-layout-booking-calendar th, 
+.tg-layout-booking-calendar td {
+    width: 400px;
+    border: 1px solid var(--tg-color-border);
+    padding: 12px;
+}
+
+.tg-layout-booking-calendar th {
+    background: #eeeeee;
+    border-color: #eeeeee;
+    color: var(--tg-color-text);
+    font-weight: bold;
+    text-align: center;
+    position: sticky;
+    top: -1px;
+    z-index: 1000;
+}
+
+.tg-layout-booking-calendar th:first-child, 
+.tg-layout-booking-calendar td:first-child {
+    border-left: none;
+}
+
+.tg-layout-booking-calendar th:last-child, 
+.tg-layout-booking-calendar td:last-child {
+    border-right: none;
+}
+
+.tg-layout-booking-calendar-content {
+    width: 100%;
+    max-width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 0.01rem solid var(--tg-color-border);
+    overflow: auto;
+}
+
+.tg-layout-booking-calendar-month {
+    width: 100%;
+    text-align: center;
+    color: var(--tg-color-text-softer);
+    padding: 20px 0;
+}
+
+.tg-layout-booking-calendar td {
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+    min-height: 200px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tg-layout-booking-calendar-day:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.tg-layout-booking-calendar-event {
+    position: relative;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.tg-layout-booking-calendar-event:hover {
+    position: relative;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.tg-layout-booking-calendar-today {
+    outline: 0.1rem solid var(--tg-color-accent);
+    background: var(--tg-color-accent-light);
+    font-weight: bold;
+}
+
+.tg-layout-booking-calendar-today .tg-layout-booking-calendar-event-indicator {
+    background: var(--tg-color-accent-dark);
+}
+
+.tg-layout-booking-calendar-today:hover {
+    background: var(--tg-color-accent-light);
+    font-weight: bold;
+}
+
+.tg-layout-booking-calendar-event-indicator {
+    width: 6px; 
+    height: 6px; 
+    background: var(--tg-color-danger); 
+    border-radius: 50%; 
+    position: absolute; 
+    bottom: 4px; 
+    left: 50%; 
+    transform: 
+    translateX(-50%);
+}
+
+.tg-layout-booking-calendar-day-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: var(--tg-color-text-softest);
+}
+
+.tg-layout-booking-modal {
+    width: 100%;
+    max-width: 500px;
+    background: var(--tg-color-white);
+    padding: 50px;
+    border-radius: 16px;
+}
+
+.tg-layout-booking-modal h2 {
+    letter-spacing: -1pt;
+    width: 100%;
+    text-align: center;
+    margin: 0 0 10px 0;
+}

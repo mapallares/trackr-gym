@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackrGym | Auth</title>
+    <link rel="stylesheet" href="../src/styles/auth.css">
+    <link rel="icon" href="../src/assets/logos/ex_logo_favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script type="module" src="../src/components/components.mjs"></script>
+    <script type="module" src="../src/scripts/auth.js"></script>
+</head>
+<body>
+    
+    <tg-loader id="loader"></tg-loader>
+
+    <main class="tg-main">
+
+        <div class="tg-main-card-scene">
+            <div class="tg-main-card">
+
+                <div class="tg-main-card-content tg-main-card-login">
+                    <div class="tg-main-card-section">
+                        <div class="tg-main-card-form">
+                            <form class="tg-form" id="loginForm">
+            
+                                <div class="tg-form-brand">
+                                    <img src="../src/assets/logos/ex_logo.svg" alt="">
+                                    <h2 class="tg-form-brand-name"><b>Trackr</b>Gym</h2>
+                                    <p class="tg-form-brand-info">Digite sus credenciales para acceder al sistema</p>
+                                </div>
+                
+                                <div class="tg-form-group">
+                                    <div class="tg-form-input-container">
+                                        <span class="material-symbols-outlined">mail</span>
+                                        <input class="tg-form-input" type="email" name="email" id="loginEmail" placeholder="Ingrese su correo" autocomplete="off" required>
+                                    </div>
+                                </div>
+                
+                                <div class="tg-form-group">
+                                    <div class="tg-form-input-container">
+                                        <span class="material-symbols-outlined">lock</span>
+                                        <input class="tg-form-input" type="password" name="password" id="loginPassword" placeholder="Ingrese su contraseña" autocomplete="off" required>
+                                    </div>
+                                </div>
+                
+                                <br>
+                                <tg-button width="full" type="submit" id="loginSubmit">
+                                    <b>Iniciar Sesión</b>
+                                </tg-button>
+                
+                                <div class="tg-form-group-center">
+                                    <p>¿Aún no tiene una cuenta? <a class="tg-form-link toggle-form">Registrarse</a></p>
+                                </div>
+                
+                                <div class="tg-form-divider">
+                                    <span class="tg-form-divider-text">O con</span>
+                                </div>
+                
+                                <div class="tg-form-group-double">
+                                    <div class="tg-form-group">
+                                        <tg-button variant="bordered" color="gray" width="full" id="loginGoogle">
+                                            <img src="../../src/assets/icons/google_provider.png" style="height: 18px;">
+                                            <p style="color: var(--tg-color-text);">Google</p>
+                                        </tg-button>
+                                    </div>
+                                    <div class="tg-form-group">
+                                        <tg-button variant="bordered" color="gray" width="full"id="loginMicrosoft">
+                                            <img src="../../src/assets/icons/microsoft_provider.png" style="height: 18px;">
+                                            <p style="color: var(--tg-color-text);">Microsoft</p>
+                                        </tg-button>                  
+                                    </div>
+                                </div>
+                
+                            </form>
+                        </div>
+                    </div>
+        
+                    <div class="tg-main-card-section tg-main-card-section-add">
+                        <div class="tg-main-card-ad">
+        
+                            <div class="tg-ad">
+                                <div class="tg-ad-name">Iniciar Sesión con el QR</div>
+                                <div class="tg-ad-qr">
+                                    <img src="../src/assets/images/tg-qr.png">
+                                </div>
+                                <div class="tg-ad-info">Escanéa este código en tu teléfono e inicia sesión</div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="tg-main-card-content tg-main-card-register">
+                    <div class="tg-main-card-section tg-main-card-section-add">
+                        <div class="tg-main-card-ad">
+        
+                            <div class="tg-ad">
+                                <div class="tg-ad-name">Registrarse con QR</div>
+                                <div class="tg-ad-qr">
+                                    <img src="../src/assets/images/tg-qr.png">
+                                </div>
+                                <div class="tg-ad-info">Escanéa este código en tu teléfono y regístrate</div>
+                            </div>
+            
+                        </div>
+                    </div>
+                    <div class="tg-main-card-section tg-main-card-section-odd">
+                    <div class="tg-main-card-form">
+                        <form class="tg-form" id="registerForm">
+        
+                            <div class="tg-form-brand">
+                                <img src="../src/assets/logos/ex_logo.svg" alt="">
+                                <h2 class="tg-form-brand-name"><b>Trackr</b>Gym</h2>
+                                <p class="tg-form-brand-info">Digite los siguientes datos para crear una cuenta</p>
+                            </div>
+    
+                            <div class="tg-form-group">
+                                <div class="tg-form-input-container">
+                                    <span class="material-symbols-outlined">person</span>
+                                    <input class="tg-form-input" type="text" name="name" id="registerName" placeholder="Nombre" autocomplete="off" required>
+                                </div>
+                            </div>
+    
+                            <div class="tg-form-group-double">
+                                <div class="tg-form-group">
+                                    <div class="tg-form-input-container">
+                                        <span class="material-symbols-outlined">sort_by_alpha</span>
+                                        <input class="tg-form-input" type="text" name="username" id="registerUsername" placeholder="Username" autocomplete="off" required>
+                                    </div>
+                                </div>
+                                <div class="tg-form-group">
+                                    <div class="tg-form-input-container">
+                                        <span class="material-symbols-outlined">tag</span>
+                                        <input class="tg-form-input" type="text" name="phone" id="registerPhone" placeholder="Teléfono" autocomplete="off" required>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="tg-form-group">
+                                <div class="tg-form-input-container">
+                                    <span class="material-symbols-outlined">mail</span>
+                                    <input class="tg-form-input" type="mail" name="email" id="registerEmail" placeholder="Correo" autocomplete="off" required>
+                                </div>
+                            </div>
+    
+                            <div class="tg-form-group">
+                                <div class="tg-form-input-container">
+                                    <span class="material-symbols-outlined">password</span>
+                                    <input class="tg-form-input" type="password" name="password" id="registerPassword" placeholder="Contraseña" autocomplete="off" required>
+                                </div>
+                            </div>
+    
+                            <br>
+                            <tg-button width="full" type="submit" id="registerSubmit">
+                                <b>Registrarse</b>
+                            </tg-button>
+    
+                            <div class="tg-form-group-center">
+                                <p>¿Ya tiene una cuenta? <a class="tg-form-link toggle-form">Iniciar Sesión</a></p>
+                            </div>
+            
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

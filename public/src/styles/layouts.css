@@ -1,0 +1,303 @@
+@import url('layouts/account.css');
+@import url('layouts/home.css');
+@import url('layouts/reset.css');
+@import url('layouts/membership.css');
+@import url('layouts/search.css');
+@import url('layouts/branch.css');
+@import url('layouts/booking.css');
+@import url('layouts/inventory.css');
+@import url('layouts/dashboard.css');
+@import url('layouts/memberships.css');
+@import url('layouts/benefits.css');
+@import url('layouts/plan.css');
+
+.tg-layout-shop-content,
+.tg-layout-catalog-content,
+.tg-layout-business-content,
+.tg-layout-schedule-content,
+.tg-layout-management-content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.tg-layout-content-padding {
+    padding: 20px;
+}
+
+.tg-layout-shop-content h1 {
+    color: var(--tg-color-text-softer);
+}
+
+.tg-layout-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+.tg-layout-table th, 
+.tg-layout-table td {
+    border: 1px solid var(--tg-color-border);
+    padding: 12px;
+    white-space: nowrap;
+}
+
+.tg-layout-table th {
+    background: #eeeeee;
+    color: var(--tg-color-text);
+    font-weight: bold;
+    text-align: center;
+}
+
+.tg-layout-table tr {
+    transition: all 0.3s ease;
+}
+
+.tg-layout-table tr:nth-child(even) {
+    background: var(--tg-color-accent-light);
+}
+
+.tg-layout-table thead th {
+    /* border-color: #eeeeee; */
+    text-align: center;
+}
+
+.tg-layout-table tbody tr:hover {
+    background: var(--tg-color-accent-light);
+    cursor: pointer;
+}
+
+.tg-layout-table td {
+    vertical-align: middle;
+    padding: 8px;
+}
+
+.tg-layout-table th:first-child, 
+.tg-layout-table td:first-child {
+    border-left: none;
+}
+
+.tg-layout-table th:last-child, 
+.tg-layout-table td:last-child {
+    border-right: none;
+}
+
+.tg-layout-table tbody td {
+    color: var(--tg-color-text-softer);
+}
+
+.tg-layout-table caption {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.tg-layout-calendar {
+    width: 100%;
+    max-width: fit-content;
+    border-collapse: collapse; 
+    text-align: center; 
+    border-width: 1;
+}
+
+.tg-layout-calendar thead th {
+    font-size: 12px;
+    height: 30px;
+    background: #eeeeee;
+    color: var(--tg-color-text-softer);
+}
+
+.tg-layout-calendar thead th:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.tg-layout-calendar thead th:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+.tg-layout-calendar-content {
+    width: 100%;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 0.01rem solid var(--tg-color-border);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.tg-layout-calendar-month {
+    width: 100%;
+    text-align: center;
+    color: var(--tg-color-text-softer);
+    padding: 0 0 10px 0;
+}
+
+.tg-layout-calendar td {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    min-height: 45px;
+    max-width: 45px;
+    max-height: 45px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.tg-layout-calendar-day:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.tg-layout-calendar-event {
+    position: relative;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.tg-layout-calendar-event:hover {
+    position: relative;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.tg-layout-calendar-today {
+    background: var(--tg-color-accent);
+    font-weight: bold;
+}
+
+.tg-layout-calendar-today .tg-layout-calendar-event-indicator {
+    background: var(--tg-color-accent-dark);
+}
+
+.tg-layout-calendar-today:hover {
+    background: var(--tg-color-accent);
+    font-weight: bold;
+}
+
+.tg-layout-calendar-event-indicator {
+    width: 6px; 
+    height: 6px; 
+    background: var(--tg-color-danger); 
+    border-radius: 50%; 
+    position: absolute; 
+    bottom: 4px; 
+    left: 50%; 
+    transform: 
+    translateX(-50%);
+}
+
+/**/
+
+.tg-layout-form-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tg-layout-form-input-group {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.tg-layout-form-input-group-double {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+}
+
+.tg-layout-form-input-group-triple {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+}
+
+.tg-layout-form-input {
+    background: transparent;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 15px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    letter-spacing: .2px;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.3);
+    border-radius: 0px;
+    transition: 0.1s ease all;
+}
+
+.tg-layout-form-input::placeholder {
+    color: #eee;
+    user-select: none;
+}
+
+.tg-layout-form-label {
+    width: 80%;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    position: absolute;
+    pointer-events: none;
+    top: calc(50% - 10px);
+    left: 15px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    padding: 5px;
+}
+
+.tg-layout-form-input:hover {
+    border-color: #000;
+}
+
+.tg-layout-form-input:invalid {
+    color: transparent;
+}
+
+.tg-layout-form-input:hover~.tg-layout-form-label {
+    color: #000;
+}
+
+.tg-layout-form-input:focus {
+    outline: none;
+    color: #000;
+    border-width: 0.1rem;
+    border-color: #000;
+}
+
+.tg-layout-form-input:valid~label {
+    width: fit-content;
+    background: transparent;
+    color: rgba(0,0,0,0.5);
+    font-weight: bold;
+    top: calc(-6px - 5px - 0.1rem);
+    font-size: 11px;
+}
+
+.tg-layout-form-input:focus~label {
+    width: fit-content;
+    background: transparent;
+    color: #000;
+    font-weight: bold;
+    top: calc(-6px - 5px - 0.1rem);
+    font-size: 11px;
+}
+
+.tg-layout-form-input:valid~.tg-layout-form-input:hover {
+    border: 0.01rem solid rgba(0,0,0,0.3);
+}
+
+.tg-layout-form-btn-colum-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

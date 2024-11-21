@@ -1,0 +1,85 @@
+.tg-layout-branch {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--tg-color-accent-active);
+    background-image: var(--bg);
+    user-select: none;
+}
+
+.gym-branch {
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    border: 0.01rem solid var(--tg-color-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 700px;
+}
+
+.branch-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: var(--tg-color-text-soft);
+}
+
+.branch-description {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #7f8c8d;
+}
+
+.branch-info {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+}
+
+.branch-info li {
+    color: var(--tg-color-text-softer);
+    margin-bottom: 10px;
+}
+
+.branch-info strong {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--tg-color-text-soft);
+}
+
+.branch-info span {
+    font-size: 22px;
+}
+
+.gym-branch h2 {
+    color: var(--tg-color-text-soft);
+}
+
+.schedules {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+}
+
+.schedule-item {
+    background: #ecf0f1;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.schedule-item span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--tg-color-text-softer);
+}
+
+.schedule-item strong {
+    color: #34495e;
+}
