@@ -141,6 +141,27 @@ export class Auth {
             return false
         }
     }
+
+    static async user(userId) {
+        const token = localStorage.getItem('token') || ""
+        const response = await fetch(API.AUTH.ENDPOINTS.USERS + `/${userId}`, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            },
+            redirect: 'follow',
+        })
+        const content = await response.json()
+        if (response.ok) {
+            return content
+        }
+        else {
+            Notify.notice(content.message, 'error')
+            return false
+        }
+    }
 }
 
 export default Auth

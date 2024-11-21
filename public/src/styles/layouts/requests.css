@@ -1,0 +1,8 @@
+.tg-layout-requests-content {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    overflow: auto;
+    padding: 20px;
+}
+

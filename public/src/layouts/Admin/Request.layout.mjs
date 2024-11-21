@@ -18,24 +18,48 @@ class RequestLayout extends Layout {
 
     static async getContent(user) {
         const content = document.createElement('div')
-        content.classList.add('tg-layout-membershippayment')
+        content.classList.add('tg-layout-requests-content')
         const bookings = await Bookings.bookings()
         content.innerHTML = `
-        <h1 style="color:var(--tg-color-text-softer); letter-spacing: -1pt; padding: 20px;">Solicitudes</h1>
+        <h1 style="color:var(--tg-color-text-softer); letter-spacing: -1pt; padding: 20px;">Solicitudes de Reserva (${bookings.length})</h1>
         <br>
         <div style="width: 100%; overflow: auto;">
             ${bookings.map(booking => {
-                renderRequest(booking)
+              return renderRequest(booking)
             }).join('')}
         </div>
         `
+
+        bookings.forEach(booking => {
+
+          $(`aprove_${booking.id}`, content).whenClick(async () => {
+              const approved = await Bookings.approve(booking.id, booking)
+              if(approved) {
+                  Notify.notice('La reserva fue aprovada')
+                  super.render(user, this)
+              }
+              else {
+                  Notify.notice('No se ha podido confirmar la reserva', 'warning')
+              }
+          })
+
+          $(`unaprove_${booking.id}`, content).whenClick(async () => {
+            const approved = await Bookings.cancel(booking.id, booking)
+            if(approved) {
+                Notify.notice('La reserva fue rechazada')
+                super.render(user, this)
+            }
+            else {
+                Notify.notice('No se ha podido rechazar la reserva', 'warning')
+            }
+          })
+          
+        })
 
         return content
     }
 
 }
-
-export default RequestLayout
 
 function renderRequest(booking) {
         const {
@@ -51,35 +75,23 @@ function renderRequest(booking) {
           activityId,
         } = booking;
       
-        const requestDate = new Date(date).toLocaleDateString("es-ES", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
-      
-        const createdDate = new Date(createdAt).toLocaleString("es-ES", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-      
         return `
           <div class="tg-layout-request-admin">
             <div class="tg-layout-request-info">
               <p><strong>Usuario ID:</strong> ${userId}</p>
-              <p><strong>Fecha:</strong> ${requestDate}</p>
+              <p><strong>Fecha:</strong> ${new Date(date).toDateString()}</p>
               <p><strong>Hora:</strong> ${startTime} - ${endTime}</p>
               <p><strong>Razón:</strong> ${reason}</p>
               <p><strong>Estado:</strong> ${status}</p>
-              <p><strong>Creado en:</strong> ${createdDate} por ${createdBy}</p>
+              <p><strong>Creado en:</strong> ${new Date(createdAt).toDateString()} por ${createdBy}</p>
               <p><strong>Actividad ID:</strong> ${activityId}</p>
             </div>
             <div class="tg-layout-request-actions">
-              <button class="tg-btn-approve" onclick="handleApprove('${id}')">Aprobar</button>
-              <button class="tg-btn-reject" onclick="handleReject('${id}')">Rechazar</button>
+              <tg-button variant="dimed" id="aprove_${id}"><span class="material-symbols-outlined">check</span> Aprobar</tg-button>
+              <tg-button variant="dimed" id="unaprove_${id}" color="danger"><span class="material-symbols-outlined">close</span> Rechazar</tg-button>
             </div>
           </div>
-        `;      
+        `     
 }
+
+export default RequestLayout
