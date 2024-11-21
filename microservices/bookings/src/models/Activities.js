@@ -76,7 +76,8 @@ export const Activities = sequelize.define('Activities',  {
 
 Activities.hasMany(Bookings, {
     foreignKey: 'activityId', 
-    sourceKey: 'id'
+    sourceKey: 'id',
+    allowNull: true
 })
 
 Bookings.belongsTo(Activities, {

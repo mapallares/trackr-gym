@@ -8,7 +8,6 @@ import './models/PaymentMethod.js'
 
 async function main() {
     try {
-        await sequelize.sync({force: true});
         app.listen(3006);
         console.log("Server is running on port 3006...");
     } catch (error) {

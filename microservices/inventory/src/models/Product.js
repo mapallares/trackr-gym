@@ -42,6 +42,14 @@ export const Product = sequelize.define('Products',{
         allowNull: false,
         defaultValue: false
     },
+    gymId:{
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    branchId:{
+        type: DataTypes.STRING,
+        allowNull: true
+    },
     status: {
         type: DataTypes.STRING,
         defaultValue : "Created",

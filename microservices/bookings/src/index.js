@@ -7,8 +7,6 @@ import './models/Attendances.js'
 
 async function main(){
     try {
-        await sequelize.sync()
-        await sequelize.authenticate({force:true})
         console.log("Conection has been established successfully.");
         app.listen(3003)
         console.log("Server is listening port", 3003)

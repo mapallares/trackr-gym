@@ -7,8 +7,11 @@ const app = express();
 
 app.use(cors())
 app.use(express.json())
-app.use(productsRoutes)
-app.use(detailsRoutes)
-app.use(inventoryMovementRoutes)
+
+const VERSIONING = '/api/v1/inventory'
+
+app.use(VERSIONING, productsRoutes)
+app.use(VERSIONING, detailsRoutes)
+app.use(VERSIONING, inventoryMovementRoutes)
 
 export default app;

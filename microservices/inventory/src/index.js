@@ -5,7 +5,6 @@ import './models/InventoryMovement.js'
 
 async function main() {
     try {
-        await sequelize.sync({force: true});
         app.listen(3005);
         console.log("Server is running on port 3000...");
     } catch (error) {
