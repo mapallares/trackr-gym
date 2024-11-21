@@ -11,7 +11,7 @@ export class UserController extends Controller {
         super.process(request, response, async () => {
             const users = await UserService.findAllUsers()
             return response.status(200).json(users.map(user => new UserDTO(user)))
-        }, ['Admin'])
+        })
     }
 
     static async getByUsername(request, response) {
@@ -25,7 +25,7 @@ export class UserController extends Controller {
             if(!user) throw new UserNotFoundError(`No existe un usuario con username = '${username}'`)
 
             return response.status(200).json(new UserDTO(user))
-        }, ['Admin'])
+        })
     }
 
     static async postOne(request, response) {
